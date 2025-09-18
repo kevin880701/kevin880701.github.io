@@ -48,13 +48,6 @@
 	line-height: 25px;
 }
 
-.article-link {
-	padding-top: 10px;
-	font-size: 14px;
-	color: var(--link-color);
-	font-weight: 700;
-}
-
 @media (max-width: 1024px) {
 	.article-left-side {
 		min-width: 10%;
@@ -66,4 +59,16 @@
 		min-width: 85%;
 		max-width: 85%;
 	}
+}
+
+.experience-container .article-description {
+	white-space: pre-line;
+}
+
+.experience-container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	width: 100%;
 }

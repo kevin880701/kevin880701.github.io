@@ -1,0 +1,464 @@
+/* 專案詳情頁面基本樣式 */
+.project-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.project-detail-back {
+    margin-bottom: 2rem;
+}
+
+.project-detail-back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.project-detail-back-button:hover {
+    color: #0056b3;
+}
+
+/* 專案標題區域 */
+.project-detail-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-detail-logo-large {
+    flex-shrink: 0;
+}
+
+.project-detail-logo-large img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-detail-title-section {
+    flex: 1;
+}
+
+.project-detail-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.project-detail-description {
+    font-size: 1.2rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 內容區塊 */
+.project-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.project-detail-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+}
+
+.project-detail-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.section-icon {
+    color: #007bff;
+    font-size: 1.25rem;
+}
+
+/* 說明文字區塊 */
+.project-detail-description-content {
+    line-height: 1.8;
+    color: #495057;
+}
+
+.description-paragraph {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.description-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* 媒體展示區域 */
+.media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.media-section {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.media-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #495057;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* 圖片網格布局 */
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.image-item {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.project-image:hover {
+    opacity: 0.9;
+}
+
+/* 影片網格布局 */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-item {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.project-video {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    background: #000;
+    display: block;
+}
+
+/* 媒體說明文字 */
+.media-caption {
+    padding: 1rem;
+    background: white;
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    font-style: italic;
+}
+
+/* 特色功能列表 */
+.project-detail-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.feature-item:hover {
+    background: #e3f2fd;
+}
+
+.feature-bullet {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+}
+
+.feature-item span:last-child {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+}
+
+/* 成果列表 */
+.project-detail-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f0f8f0;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    transition: background-color 0.3s ease;
+}
+
+.achievement-item:hover {
+    background: #e8f5e8;
+}
+
+.achievement-bullet {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+}
+
+.achievement-item span:last-child {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+}
+
+/* 無媒體內容提示 */
+.no-media {
+    text-align: center;
+    padding: 3rem;
+    color: #6c757d;
+    font-style: italic;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+}
+
+/* 圖片模態框 */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.3s ease;
+}
+
+.image-modal-img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+}
+
+.image-modal-caption {
+    padding: 1rem;
+    background: white;
+    color: #495057;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-top: 1px solid #e9ecef;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.image-modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .project-detail-container {
+        padding: 1rem;
+    }
+
+    .project-detail-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .project-detail-title {
+        font-size: 2rem;
+    }
+
+    .project-detail-description {
+        font-size: 1.1rem;
+    }
+
+    .project-detail-section {
+        padding: 1.5rem;
+    }
+
+    .images-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .image-modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .image-modal-close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-detail-title {
+        font-size: 1.8rem;
+    }
+
+    .project-detail-description {
+        font-size: 1rem;
+    }
+
+    .description-paragraph {
+        font-size: 1rem;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-item {
+        min-width: unset;
+    }
+}

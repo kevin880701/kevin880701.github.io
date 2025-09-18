@@ -1,84 +1,37 @@
 const INFO = {
 	main: {
-		title: "Reactfolio by truethari",
-		name: "Tharindu N.",
-		email: "mail@tharindu.dev",
+		title: "劉浩然 (Hao-Ran Liu) - 個人作品集",
+		name: "劉浩然 (Hao-Ran Liu)",
+		email: "kn880701@gmail.com",
 		logo: "../logo.png",
 	},
 
 	socials: {
-		twitter: "https://twitter.com/",
 		github: "https://github.com/",
-		linkedin: "https://linkedin.com/",
-		instagram: "https://instagram.com/",
-		stackoverflow: "https://stackoverflow.com/",
-		facebook: "https://facebook.com/",
+		linkedin: "https://linkedin.com/in/",
 	},
 
 	homepage: {
-		title: "Full-stack web and mobile app developer, and amateur astronaut.",
+		title: "跨平台APP開發工程師，專精 Flutter、Android 與 Go 後端、AI技術。",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies. I enjoy solving complex problems and learning new skills. I am passionate about creating high-quality code that follows best practices and industry standards. I am always looking for new challenges and opportunities to grow as a developer.",
+			"我是一位具備五年經驗的全端開發工程師，所擁有的技術有 Flutter、Android (Kotlin、Java)、AI模型訓練與 Go 後端。同時熟悉 CI/CD 流程。有專案從零到一成功上架的完整經驗。",
 	},
 
 	about: {
-		title: "I’m Tharindu N. I live in Sri Lanka, where I design the future.",
+		title: "我叫劉浩然，一位熱愛技術、享受挑戰的軟體工程師。",
 		description:
-			"I've worked on a variety of projects over the years and I'm proud of the progress I've made. Many of these projects are open-source and available for others to explore and contribute to. If you're interested in any of the projects I've worked on, please feel free to check out the code and suggest any improvements or enhancements you might have in mind. Collaborating with others is a great way to learn and grow, and I'm always open to new ideas and feedback.",
+			"我是劉浩然，一位同時具備五年 APP 開發與 Go 後端開發經驗的軟體工程師。我熱衷於打造穩定且高品質的產品，並享受透過技術解決問題的過程。\n" +
+			"在行動端，我擅長使用 Flutter、Kotlin 及 Java 開發，並有將藍牙、MQTT 等 IoT 應用與 WebSocket 即時通訊整合的豐富經驗。\n" +
+			"在後端，我主要使用 Go 語言搭配 Gin 框架開發 RESTful API，熟悉 JWT 驗證機制、PostgreSQL/MySQL 資料庫操作，並能透過 Docker Compose 獨立完成服務的容器化部署。 \n" +
+			"無論是 APP 或是後端服務，我都具備 CI/CD 自動化流程的建置經驗，能有效提升開發與部署效率。 \n" +
+			"此外，也曾主導從零開始的影像辨識模型訓練，將其研究成果投稿至國際期刊。並將 AI 模型整合至 App 的實務經驗。 ",
 	},
 
-	articles: {
-		title: "I'm passionate about pushing the boundaries of what's possible and inspiring the next generation of innovators.",
+	experience: {
+		title: "學歷及工作經歷",
 		description:
-			"Chronological collection of my long-form thoughts on programming, leadership, product design, and more.",
+			"以下是我的專業歷程，從學術研究到業界實踐，在軟體開發領域累積了豐富的經驗。",
 	},
-
-	projects: [
-		{
-			title: "Project 1",
-			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			link: "https://github.com",
-		},
-
-		{
-			title: "Project 2",
-			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
-			linkText: "View Project",
-			link: "https://github.com",
-		},
-
-		{
-			title: "Project 3",
-			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
-			linkText: "View Project",
-			link: "https://github.com",
-		},
-
-		{
-			title: "Project 4",
-			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			link: "https://github.com",
-		},
-
-		{
-			title: "Project 5",
-			description:
-				"Lorem ipsum dolor sit amet. Et incidunt voluptatem ex tempore repellendus qui dicta nemo sit deleniti minima.",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
-			linkText: "View Project",
-			link: "https://github.com",
-		},
-	],
 };
 
 export default INFO;

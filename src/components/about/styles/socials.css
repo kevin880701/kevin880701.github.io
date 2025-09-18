@@ -34,3 +34,8 @@
 .email-wrapper {
 	padding-top: 20px;
 }
+
+.pre-wrap-text {
+	white-space: pre-wrap;
+}
+

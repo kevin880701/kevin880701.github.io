@@ -4,25 +4,25 @@ import { Helmet } from "react-helmet";
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
-import Article from "../components/articles/article";
+import ExperienceItem from "../components/experience/experienceItem";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
-import myArticles from "../data/articles";
+import myExperience from "../data/experience";
 
-import "./styles/articles.css";
+import "./styles/experience.css";
 
-const Articles = () => {
+const Experience = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "articles");
+	const currentSEO = SEO.find((item) => item.page === "experience");
 
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Articles | ${INFO.main.title}`}</title>
+				<title>{`經歷 | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -31,36 +31,35 @@ const Articles = () => {
 			</Helmet>
 
 			<div className="page-content">
-				<NavBar active="articles" />
+				<NavBar active="experience" />
 				<div className="content-wrapper">
-					<div className="articles-logo-container">
-						<div className="articles-logo">
+					<div className="experience-logo-container">
+						<div className="experience-logo">
 							<Logo width={46} />
 						</div>
 					</div>
 
-					<div className="articles-main-container">
-						<div className="title articles-title">
-							{INFO.articles.title}
+					<div className="experience-main-container">
+						<div className="title experience-title">
+							{INFO.experience.title}
 						</div>
 
-						<div className="subtitle articles-subtitle">
-							{INFO.articles.description}
+						<div className="subtitle experience-subtitle">
+							{INFO.experience.description}
 						</div>
 
-						<div className="articles-container">
-							<div className="articles-wrapper">
-								{myArticles.map((article, index) => (
+						<div className="experience-container">
+							<div className="experience-wrapper">
+								{myExperience.map((item, index) => (
 									<div
-										className="articles-article"
+										className="experience-item"
 										key={(index + 1).toString()}
 									>
-										<Article
+										<ExperienceItem
 											key={(index + 1).toString()}
-											date={article().date}
-											title={article().title}
-											description={article().description}
-											link={"/article/" + (index + 1)}
+											date={item.date}
+											title={item.title}
+											description={item.description}
 										/>
 									</div>
 								))}
@@ -76,4 +75,4 @@ const Articles = () => {
 	);
 };
 
-export default Articles;
+export default Experience;

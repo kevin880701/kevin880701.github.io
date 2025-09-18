@@ -7,9 +7,11 @@ import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
 import INFO from "../data/user";
+import ABOUT from "../data/about";
 import SEO from "../data/seo";
 
 import "./styles/about.css";
+import Skills from "../components/about/skills";
 
 const About = () => {
 	useEffect(() => {
@@ -42,11 +44,11 @@ const About = () => {
 						<div className="about-main">
 							<div className="about-right-side">
 								<div className="title about-title">
-									{INFO.about.title}
+									{ABOUT.title}
 								</div>
 
-								<div className="subtitle about-subtitle">
-									{INFO.about.description}
+								<div className="subtitle about-subtitle  pre-wrap-text">
+									{ABOUT.description}
 								</div>
 							</div>
 
@@ -61,6 +63,7 @@ const About = () => {
 									</div>
 								</div>
 
+
 								<div className="about-socials">
 									<Socials />
 								</div>
@@ -70,6 +73,7 @@ const About = () => {
 							<Socials />
 						</div>
 					</div>
+					<Skills />
 					<div className="page-footer">
 						<Footer />
 					</div>
