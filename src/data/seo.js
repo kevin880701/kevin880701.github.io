@@ -14,10 +14,10 @@ const SEO = [
 	},
 
 	{
-		page: "articles",
+		page: "experience",
 		description:
-			"Chronological collection of my long-form thoughts on programming, leadership, product design, and more.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"我的學經歷與專業成就，包含在 Flutter、Go、Android 與 AI 領域的經驗。",
+		keywords: ["劉浩然", "Hao-Ran Liu", "學經歷"],
 	},
 
 	{

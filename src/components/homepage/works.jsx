@@ -2,10 +2,14 @@ import React from "react";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../common/card";
+import myExperience from "../../data/experience";
 
 import "./styles/works.css";
 
 const Works = () => {
+	// 只篩選出工作經歷（type 為 "Work"）
+	const workExperiences = myExperience.filter(item => item.type === "Work");
+
 	return (
 		<div className="works">
 			<Card
@@ -13,31 +17,17 @@ const Works = () => {
 				title="Work"
 				body={
 					<div className="works-body">
-						<div className="work">
-							<img
-								src="./facebook.png"
-								alt="facebook"
-								className="work-image"
-							/>
-							<div className="work-title">Facebook</div>
-							<div className="work-subtitle">
-								Software Engineer
-							</div>
-							<div className="work-duration">2019 - Present</div>
-						</div>
-
-						<div className="work">
-							<img
-								src="./twitter.png"
-								alt="twitter"
-								className="work-image"
-							/>
-							<div className="work-title">Twitter</div>
-							<div className="work-subtitle">
-								Software Engineer
-							</div>
-							<div className="work-duration">2019 - Present</div>
-						</div>
+						{workExperiences.map((work, index) => {
+							const [position, company] = work.title.split(" | ");
+							
+							return (
+								<div className="work" key={index}>
+									<div className="work-title">{company}</div>
+									<div className="work-subtitle">{position}</div>
+									<div className="work-duration">{work.date}</div>
+								</div>
+							);
+						})}
 					</div>
 				}
 			/>

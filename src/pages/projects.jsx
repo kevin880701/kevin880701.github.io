@@ -39,21 +39,11 @@ const Projects = () => {
 					</div>
 					<div className="projects-container">
 						<div className="title projects-title">
-							Things I’ve made trying to put my dent in the
-							universe.
+							用程式構築想法，用技術解決問題。
 						</div>
 
 						<div className="subtitle projects-subtitle">
-							I've worked on a variety of projects over the years
-							and I'm proud of the progress I've made. Many of
-							these projects are open-source and available for
-							others to explore and contribute to. If you're
-							interested in any of the projects I've worked on,
-							please feel free to check out the code and suggest
-							any improvements or enhancements you might have in
-							mind. Collaborating with others is a great way to
-							learn and grow, and I'm always open to new ideas and
-							feedback.
+							在過去的幾年中，我投入了多個專案，從 IoT 應用、AI 影像辨識到企業級系統。每一個專案都代表著一次技術挑戰與成長。這裡不僅僅是成果的展示，更是我解決問題的思路與經驗累積。
 						</div>
 
 						<div className="projects-list">
