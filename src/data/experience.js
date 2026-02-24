@@ -52,45 +52,45 @@ const myExperience = [
         ]
     },
     {
-        type: "Education",
-        date: "2021/09 - 2023/07",
-        title: "國立台中科技大學 | 資訊工程系 碩士",
+        type: "Work",
+        date: "2020/09 - 2023/07",
+        title: "實習工程師 | 國立台中科技大學",
         description: [
             {
-                parts: [
-                    { type: "text", content: "主修 AI 影像辨識，研究成果發表於國際期刊" },
-                    { type: "link", content: "《Applied Soft Computing》(2024)", url: "https://www.sciencedirect.com/science/article/abs/pii/S1568494624007373" },
-                    { type: "text", content: "。" }
-                ]
+                text: "於國立台中科技大學擔任長期實習工程師，協助校內系統與 Android APP 開發與維護。"
             },
             {
-                parts: [
-                    { type: "text", content: "以 Flutter 整合 AI 模型，並以 Go 建構後端開發" },
-                    { type: "link", content: "口腔衛教系統", url: "https://example.com/oral-health-system" },
-                    { type: "text", content: "並獲得2022 " },
-                    { type: "link", content: "聯發科技「智在家鄉」競賽", url: "https://corp.mediatek.tw/corporate-social-responsibility/corporate-social-responsibility-news/two-winners-announced-for-genius-for-home" },
-                    { type: "text", content: "首獎。" }
-                ]
+                text: "參與「台達機械助手」等校內合作專案，支援系統設計與功能開發。"
             },
             {
-                parts: [
-                    { type: "text", content: "與" },
-                    { type: "link", content: "警政署", url: "https://www.npa.gov.tw/" },
-                    { type: "text", content: "合作，使用 Kotlin 開發 App，實現網路封包與 UI 行為側錄。" }
-                ]
+                text: "參與「Dr.Voice 嗓音衛教」與「口腔衛教系統」等專案，負責行動應用程式開發與裝置整合。"
+            },
+            {
+                text: "與警政署合作專案，使用 Kotlin 開發 App，實現網路封包與 UI 行為側錄與分析。"
+            },
+            {
+                text: "在學期間長期使用 Java 開發與維護校內 Android APP，支援 IoT 資料串流、藍芽連線與健康照護、機器人控制等應用。"
             }
         ]
     },
     {
         type: "Education",
-        date: "2017/09 - 2021/07",
-        title: "國立台中科技大學 | 資訊工程系 學士",
+        date: "2017/09 - 2023/07",
+        title: "國立台中科技大學 | 資訊工程系 學士／碩士",
         description: [
             {
-                text: "在學期間擔任實習工程師，使用 Java 開發與維護校內 Android APP。"
+                parts: [
+                    { type: "text", content: "完成資訊工程學士與碩士學位，研究領域聚焦於 AI 影像辨識與智慧應用開發。" }
+                ]
             },
             {
-                text: "支援 IoT 資料串流與藍芽連線，並參與健康照護、機器人控制等校務專案。"
+                parts: [
+                    { type: "text", content: "碩士研究成果發表於國際期刊 " },
+                    { type: "link", content: "《Applied Soft Computing》(2024)", url: "https://www.sciencedirect.com/science/article/abs/pii/S1568494624007373" },
+                    { type: "text", content: "，並於 2022 年獲得" },
+                    { type: "link", content: "聯發科技「智在家鄉」競賽", url: "https://corp.mediatek.tw/corporate-social-responsibility/corporate-social-responsibility-news/two-winners-announced-for-genius-for-home" },
+                    { type: "text", content: "首獎。" }
+                ]
             }
         ]
     }
