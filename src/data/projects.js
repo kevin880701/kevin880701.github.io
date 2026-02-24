@@ -494,6 +494,65 @@ const PROJECTS = [
             ],
             videos: []
         }
+    },
+    {
+        title: "Lioneers AST 球隊服務 App",
+        slug: "lioneers-ast",
+        description: "為新竹攻城獅球迷打造的一站式行動服務入口，整合會員、活動、門票與球隊相關資訊。",
+        logo: "/images/lioneers-logo.png",
+        linkText: "查看專案",
+        link: "",
+
+        descriptions: [
+            "Lioneers AST 球隊服務 App 是為新竹攻城獅球迷打造的一站式行動服務入口，整合會員登入、活動頁面、門票與球隊相關資訊，讓球迷可以隨時掌握最新動態。系統透過後端 API 串接既有平台，將原本分散在不同網頁或系統的功能集中到單一 App 中。",
+            "在技術架構上，專案以 Flutter 建置跨平台 App，搭配 Riverpod 做狀態管理、AutoRoute 建立分層式路由與 Deep Link 處理流程，並整合 Firebase Cloud Messaging 推播服務與本地通知，確保重要公告（如賽事資訊、活動通知）能第一時間觸達使用者。",
+            "App 啟動時會依環境設定初始化 API 網域、建立網路層與共用儲存（Shared Preferences），並透過 Deep Link、App Links 與 Router 的整合，支援從外部連結直接導向 App 內特定頁面。整體專案同時導入響應式 UI 設計與螢幕適配，確保在不同裝置尺寸上都有良好的使用體驗。"
+        ],
+
+        features: [
+            "Flutter 跨平台開發（iOS / Android）",
+            "Riverpod / Hooks 架構的狀態管理與組件設計",
+            "AutoRoute 路由系統與 Deep Link 導頁流程",
+            "Firebase Cloud Messaging 推播與本地通知整合",
+            "Shared Preferences 使用者設定與登入狀態保存",
+            "響應式版面與多裝置螢幕適配（ScreenUtil）"
+        ],
+
+        achievements: [
+            "為球隊與球迷建立統一的行動服務入口",
+            "整合推播與 Deep Link，提升活動與賽事宣傳成效",
+            "建立可持續擴充的模組化 Flutter 專案架構"
+        ],
+
+        media: {
+            images: [
+                {
+                    src: "/images/lioneers-home.jpg",
+                    caption: "Lioneers AST 首頁，整合球隊資訊與主要功能入口"
+                },
+                {
+                    src: "/images/lioneers-buy-ticket.jpg",
+                    caption: "購票頁面，提供賽事場次與座位選擇"
+                },
+                {
+                    src: "/images/lioneers-my-ticket.jpg",
+                    caption: "我的票券頁面，集中管理已購買的賽事門票"
+                },
+                {
+                    src: "/images/lioneers-activity.jpg",
+                    caption: "活動列表頁面，顯示球隊相關行銷與球迷活動"
+                },
+                {
+                    src: "/images/lioneers-notification.jpg",
+                    caption: "通知中心，整合推播與系統公告"
+                },
+                {
+                    src: "/images/lioneers-account.jpg",
+                    caption: "會員中心頁面，顯示個人資料與會員等級資訊"
+                }
+            ],
+            videos: []
+        }
     }
 ];
 
