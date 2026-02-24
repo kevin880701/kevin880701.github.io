@@ -2,10 +2,22 @@ const myExperience = [
     {
         type: "Work",
         date: "2025/10 - 至今",
-        title: "APP工程師 | 智聯服務股份有限公司",
+        title: "全端工程師 | 智聯服務股份有限公司",
         description: [
             {
-                text: "負責 APP 開發與維護。"
+                text: "負責公司產品之全端開發與維護，涵蓋行動裝置、網頁及後端服務。"
+            },
+            {
+                text: "使用 Flutter 進行雙平台（iOS/Android）App 開發與維護，優化跨平台操作流暢度。"
+            },
+            {
+                text: "利用 React 框架建構高互動性 Web 介面，並開發 LINE LIFF 應用以延伸產品服務觸角。"
+            },
+            {
+                text: "後端採用 Go 語言進行 API 開發與系統邏輯維護，確保資料傳輸之高效與穩定。"
+            },
+            {
+                text: "與 PM 協作，參與從需求分析、系統設計到功能上線之完整週期，確保產品完整性。"
             }
         ]
     },
