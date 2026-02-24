@@ -441,6 +441,59 @@ const PROJECTS = [
             ],
             videos: []
         }
+    },
+    {
+        title: "Boutik APP 二手與選物電商平台",
+        slug: "boutik-app",
+        description: "以二手與選物交易為核心的一站式行動電商平台，串接商品瀏覽、下單付款、鑑定驗貨、退貨申請與客服協助等完整流程。",
+        logo: "/images/boutik-logo.png",
+        linkText: "查看專案",
+        link: "",
+
+        descriptions: [
+            "Boutik APP 是一款以二手與選物交易為主的行動電商平台，提供買賣雙方從瀏覽商品、下單付款、鑑定驗貨、退貨申請與客服協助的一站式服務。",
+            "系統同時支援買家與賣家兩種角色，讓個人玩家或專業店家都能輕鬆經營自己的小店鋪，包含商品上架、訂單管理與交易狀態追蹤等功能。",
+            "在交易流程之外，Boutik APP 也整合了即時聊天室，買家可以直接和賣家溝通，遇到爭議時也能透過退貨與申訴流程，讓整體交易過程更安全、更透明。"
+        ],
+
+        features: [
+            "二手與選物商品交易流程",
+            "支援買家與賣家雙角色",
+            "訂單與物流狀態管理",
+            "退貨與申訴流程",
+            "內建即時聊天室系統"
+        ],
+
+        achievements: [
+            "建立完整的行動電商交易流程",
+            "支援多角色、多情境的交易體驗"
+        ],
+
+        media: {
+            images: [
+                {
+                    src: "/images/boutik-home.png",
+                    caption: "Boutik APP 首頁商品瀏覽畫面"
+                },
+                {
+                    src: "/images/boutik-post.png",
+                    caption: "商品上架頁面，賣家可以建立與編輯商品資訊"
+                },
+                {
+                    src: "/images/boutik-cart.png",
+                    caption: "購物車畫面，顯示買家已加入的商品與金額"
+                },
+                {
+                    src: "/images/boutik-chat-room-list.png",
+                    caption: "聊天室列表，顯示與不同買家／賣家的對話"
+                },
+                {
+                    src: "/images/boutik-chat-room.png",
+                    caption: "聊天室對話畫面，支援買家與賣家即時溝通"
+                }
+            ],
+            videos: []
+        }
     }
 ];
 
