@@ -7,8 +7,8 @@ import myExperience from "../../data/experience";
 import "./styles/works.css";
 
 const Works = () => {
-	// 只篩選出工作經歷（type 為 "Work"）
-	const workExperiences = myExperience.filter(item => item.type === "Work");
+	// 取得所有工作經歷
+	const workExperiences = myExperience;
 
 	return (
 		<div className="works">
@@ -24,7 +24,7 @@ const Works = () => {
 								<div className="work" key={index}>
 									<div className="work-title">{company}</div>
 									<div className="work-subtitle">{position}</div>
-									<div className="work-duration">{work.date}</div>
+									<div className="work-duration">{work.startDate} - {work.endDate}</div>
 								</div>
 							);
 						})}

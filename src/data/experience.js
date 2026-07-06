@@ -1,7 +1,7 @@
 const myExperience = [
     {
-        type: "Work",
-        date: "2025/10 - 至今",
+        startDate: "2025/10",
+        endDate: "至今",
         title: "全端工程師 | 智聯服務股份有限公司",
         description: [
             {
@@ -23,8 +23,8 @@ const myExperience = [
         ]
     },
     {
-        type: "Work",
-        date: "2025/03 - 2025/09",
+        startDate: "2025/03",
+        endDate: "2025/09",
         title: "APP工程師 | 艾捷科技有限公司",
         description: [
             {
@@ -36,8 +36,8 @@ const myExperience = [
         ]
     },
     {
-        type: "Work",
-        date: "2023/11 - 2025/02",
+        startDate: "2023/11",
+        endDate: "2025/02",
         title: "APP工程師 | 發條橘子科技股份有限公司",
         description: [
             {
@@ -47,17 +47,24 @@ const myExperience = [
                 text: "主導 IoT 智慧裝置 App 開發，處理複雜的 BLE / BluFi 藍牙通訊協定，優化斷線重連機制，使硬體串接成功率提升至 90% 以上。"
             },
             {
-                text: "在確保系統流暢度的前提下進行技術選型與重構，完成跨平台的程式開發，為團隊縮減後續 50% 以上的開發與維護成本。"
+                text: "在確保系統流暢度的前提下進行技術選型與重構，完成跨平台的程式開發，為團隊縮減後續 50% 以上 of 開發與維護成本。"
             }
         ]
     },
     {
-        type: "Work",
-        date: "2020/09 - 2023/07",
+        startDate: "2020/09",
+        endDate: "2023/07",
         title: "實習工程師 | 國立台中科技大學",
         description: [
             {
-                text: "於國立台中科技大學擔任長期實習工程師，協助校內系統與 Android APP 開發與維護。"
+                text: "參與產學合作擔任實習工程師，使用 Java 與 Kotlin 開發與維護校內系統及 Android App，應用領域涵蓋 IoT 資料串流、藍牙連線、健康照護與機器人控制。"
+            },
+            {
+                parts: [
+                    { type: "text", content: "參與食藥署合作專案 " },
+                    { type: "link", content: "移動FDA", url: "/project/fda" },
+                    { type: "text", content: "：利用 Flutter 協助將傳統紙本稽查流程數位化，導入離線資料儲存與廠商電子簽名功能，大幅提升政府稽查之行政效率。" }
+                ]
             },
             {
                 text: "參與「台達機械助手」等校內合作專案，支援系統設計與功能開發。"
@@ -67,49 +74,6 @@ const myExperience = [
             },
             {
                 text: "與警政署合作專案，使用 Kotlin 開發 App，實現網路封包與 UI 行為側錄與分析。"
-            },
-            {
-                text: "在學期間長期使用 Java 開發與維護校內 Android APP，支援 IoT 資料串流、藍芽連線與健康照護、機器人控制等應用。"
-            }
-        ]
-    },
-    {
-        type: "Education",
-        date: "2017/09 - 2023/07",
-        title: "國立台中科技大學 | 資訊工程系 學士／碩士",
-        description: [
-            {
-                parts: [
-                    { type: "text", content: "完成資訊工程學士與碩士學位，研究領域聚焦於 AI 影像辨識與智慧應用開發。" }
-                ]
-            },
-            {
-                parts: [
-                    { type: "text", content: "發表碩士論文 " },
-                    { type: "link", content: "《運用 5PKC 骨架分區策略於時空圖卷積網路之健身動作識別》", url: "https://hdl.handle.net/11296/sc5g86" },
-                    { type: "text", content: "：創新引入五大動力鏈（5PKC）策略優化 ST-GCN 深度學習模型，排除背景雜訊，實現高精準度的人體骨架健身動作識別與正確性評估。" }
-                ]
-            },
-            {
-                parts: [
-                    { type: "text", content: "碩士研究成果發表於國際期刊 " },
-                    { type: "link", content: "《Applied Soft Computing》(2024)", url: "https://www.sciencedirect.com/science/article/abs/pii/S1568494624007373" },
-                    { type: "text", content: "，論文名稱：Human movement science-informed multi-task spatio-temporal graph convolutional networks for fitness action recognition and evaluation。" }
-                ]
-            },
-            {
-                parts: [
-                    { type: "text", content: "碩士研究成果發表於 Springer 國際學術叢書 " },
-                    { type: "link", content: "《Advances in Intelligent Systems and Computing》", url: "https://link.springer.com/chapter/10.1007/978-981-99-2287-1_100" },
-                    { type: "text", content: "，論文名稱：Applying 5PKC-Based Skeleton Partition Strategy into Spatio-Temporal Graph Convolution Networks for Fitness Action Recognition。" }
-                ]
-            },
-            {
-                parts: [
-                    { type: "text", content: "於 2022 年獲得 " },
-                    { type: "link", content: "聯發科技「智在家鄉」競賽", url: "https://corp.mediatek.tw/corporate-social-responsibility/corporate-social-responsibility-news/two-winners-announced-for-genius-for-home" },
-                    { type: "text", content: "首獎。" }
-                ]
             }
         ]
     }

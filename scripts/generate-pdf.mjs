@@ -31,6 +31,34 @@ function calculateAge(birthdayString) {
 }
 const dynamicAge = calculateAge(INFO.main.birthday);
 
+// Calculate total work experience dynamically from myExperience (max - min)
+function getExperienceYearsString() {
+	if (!myExperience || myExperience.length === 0) return '無工作經歷';
+	
+	let minDate = new Date();
+	let maxDate = new Date(0);
+
+	myExperience.forEach(exp => {
+		const [sYear, sMonth] = exp.startDate.split('/').map(Number);
+		const start = new Date(sYear, sMonth - 1, 1);
+		
+		let end;
+		if (exp.endDate === "至今") {
+			end = new Date();
+		} else {
+			const [eYear, eMonth] = exp.endDate.split('/').map(Number);
+			end = new Date(eYear, eMonth - 1, 1);
+		}
+
+		if (start < minDate) minDate = start;
+		if (end > maxDate) maxDate = end;
+	});
+
+	const totalMonths = (maxDate.getFullYear() - minDate.getFullYear()) * 12 + (maxDate.getMonth() - minDate.getMonth());
+	const yearsDecimal = (totalMonths / 12).toFixed(1);
+	return `${yearsDecimal}年工作經歷`;
+}
+
 // Initialize PDF Document
 const doc = new PDFDocument({
 	size: 'A4',
@@ -134,7 +162,8 @@ function drawMainHeader() {
 
 	// Subtitle: Core Info Tagline
 	doc.font('Heiti').fontSize(9).fillColor(COLOR_MUTED);
-	doc.text('新竹市 | 2~3年工作經歷 | 希望職稱: app開發工程師、後端工程師、全端工程師', textStartX, 113);
+	const expYearsStr = getExperienceYearsString();
+	doc.text(`新竹市 | ${expYearsStr} | 希望職稱: app開發工程師、後端工程師、全端工程師`, textStartX, 113);
 
 	doc.y = 145;
 }
@@ -212,7 +241,7 @@ function drawExperience() {
 
 	// Total experience
 	doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(10);
-	doc.text('總年資：2~3年工作經歷', 40, doc.y);
+	doc.text(`總年資：${getExperienceYearsString()}`, 40, doc.y);
 	doc.y += 15;
 
 	// Loop through myExperience (which matches experience.js)
@@ -235,7 +264,7 @@ function drawExperience() {
 		doc.text(exp.title, 55, startY);
 
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(exp.date, 55, startY, { align: 'right', width: 500.28 });
+		doc.text(`${exp.startDate} - ${exp.endDate}`, 55, startY, { align: 'right', width: 500.28 });
 
 		// Description bullets
 		let bulletY = startY + 20;
