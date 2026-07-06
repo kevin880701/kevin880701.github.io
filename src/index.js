@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+
+const redirectPath = window.sessionStorage.getItem("gh-pages-redirect-path");
+if (redirectPath) {
+    window.sessionStorage.removeItem("gh-pages-redirect-path");
+    window.history.replaceState(null, "", redirectPath);
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
