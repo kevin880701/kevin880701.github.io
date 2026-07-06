@@ -34,14 +34,14 @@ const dynamicAge = calculateAge(INFO.main.birthday);
 // Calculate total work experience dynamically from myExperience (max - min)
 function getExperienceYearsString() {
 	if (!myExperience || myExperience.length === 0) return '無工作經歷';
-	
+
 	let minDate = new Date();
 	let maxDate = new Date(0);
 
 	myExperience.forEach(exp => {
 		const [sYear, sMonth] = exp.startDate.split('/').map(Number);
 		const start = new Date(sYear, sMonth - 1, 1);
-		
+
 		let end;
 		if (exp.endDate === "至今") {
 			end = new Date();
@@ -211,11 +211,15 @@ function drawPersonalInfo() {
 
 // 3. Education Section
 function drawEducation() {
-	checkPageSpace(doc, 100);
+	checkPageSpace(doc, 120);
 	drawSectionTitle('學歷');
 
 	myEducation.forEach((edu) => {
-		checkPageSpace(doc, 45);
+		// Calculate height estimate for this education entry
+		const bulletCount = edu.resumeDescription ? edu.resumeDescription.length : 0;
+		const entryHeight = 45 + bulletCount * 18 + 10;
+
+		checkPageSpace(doc, entryHeight);
 		const startY = doc.y;
 
 		// School Name
@@ -224,13 +228,71 @@ function drawEducation() {
 
 		// Department & Degree
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(`${edu.department} | ${edu.degree}畢業`, 40, startY + 16);
+		doc.text(`${edu.department} | ${edu.degree}`, 40, startY + 16);
 
 		// Date Range
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
 		doc.text(`${edu.startDate} ~ ${edu.endDate}`, 40, startY, { align: 'right', width: 515.28 });
 
-		doc.y = startY + 35;
+		// Draw description bullets if present
+		let bulletY = startY + 32;
+		if (edu.resumeDescription && edu.resumeDescription.length > 0) {
+			edu.resumeDescription.forEach((desc) => {
+				doc.fillColor(COLOR_PRIMARY).font('Heiti').fontSize(9);
+				doc.text('•', 40, bulletY, { width: 10 });
+
+				let heightEstimate = 12;
+
+				if (desc.text) {
+					doc.text(desc.text, 53, bulletY, { width: 502, align: 'left', lineGap: 2 });
+					heightEstimate = doc.heightOfString(desc.text, { width: 502, lineGap: 2 });
+				} else if (desc.parts) {
+					const plainText = desc.parts.map(p => p.content).join('');
+					heightEstimate = doc.heightOfString(plainText, { width: 502, lineGap: 2 });
+
+					const firstPart = desc.parts[0];
+					const isLast = desc.parts.length === 1;
+
+					const firstOptions = {
+						width: 502,
+						align: 'left',
+						lineGap: 2,
+						continued: !isLast
+					};
+					if (firstPart.type === 'link') {
+						doc.fillColor(COLOR_ACCENT);
+						let url = firstPart.url;
+						if (url.startsWith('/')) url = 'https://kevin880701.github.io' + url;
+						firstOptions.link = url;
+					} else {
+						doc.fillColor(COLOR_PRIMARY);
+					}
+					doc.text(firstPart.content, 53, bulletY, firstOptions);
+
+					for (let i = 1; i < desc.parts.length; i++) {
+						const part = desc.parts[i];
+						const isPartLast = i === desc.parts.length - 1;
+						const options = {
+							continued: !isPartLast
+						};
+						if (part.type === 'link') {
+							doc.fillColor(COLOR_ACCENT);
+							let url = part.url;
+							if (url.startsWith('/')) url = 'https://kevin880701.github.io' + url;
+							options.link = url;
+						} else {
+							doc.fillColor(COLOR_PRIMARY);
+						}
+						doc.text(part.content, options);
+					}
+					doc.fillColor(COLOR_PRIMARY); // restore final state
+				}
+
+				bulletY += heightEstimate + 6;
+			});
+		}
+
+		doc.y = bulletY + 10;
 	});
 }
 

@@ -34,9 +34,21 @@ const myEducation = [
             },
             {
                 parts: [
-                    { type: "text", content: "於 2022 年獲得 " },
+                    { type: "text", content: "於 2022 年以開發之「口腔衛教系統」榮獲 " },
                     { type: "link", content: "聯發科技「智在家鄉」競賽", url: "https://corp.mediatek.tw/corporate-social-responsibility/corporate-social-responsibility-news/two-winners-announced-for-genius-for-home" },
                     { type: "text", content: "首獎。" }
+                ]
+            }
+        ],
+        resumeDescription: [
+            {
+                parts: [
+                    { type: "text", content: "於 2022 年以開發「口腔衛教系統」榮獲聯發科技「智在家鄉」競賽首獎。" }
+                ]
+            },
+            {
+                parts: [
+                    { type: "text", content: "專注於 AI 影像辨識與深度學習應用研究，並發佈 3 篇相關學術論文。" }
                 ]
             }
         ]
@@ -55,7 +67,14 @@ const myEducation = [
             },
             {
                 parts: [
-                    { type: "text", content: "在學期間即獲聘為實習工程師，主力使用 Java / Kotlin 開發 Android App，並協助 IoT 裝置串接與系統整合。" }
+                    { type: "text", content: "在學期間擔任實習工程師，使用 Java / Kotlin 開發 Android App，並協助 IoT 裝置串接與系統整合。" }
+                ]
+            }
+        ],
+        resumeDescription: [
+            {
+                parts: [
+                    { type: "text", content: "在學期間擔任實習工程師，累積 Android App (Java/Kotlin) 與 IoT 系統整合實戰開發經驗。" }
                 ]
             }
         ]
