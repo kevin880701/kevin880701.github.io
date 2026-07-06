@@ -64,6 +64,7 @@ const Experience = () => {
 											date={`${item.startDate} - ${item.endDate}`}
 											title={item.title}
 											description={item.description}
+											logo={item.logo}
 										/>
 									</div>
 								))}
@@ -83,6 +84,7 @@ const Experience = () => {
 											date={`${item.startDate} - ${item.endDate}`}
 											title={`${item.title} | ${item.department} ${item.degree}`}
 											description={item.description}
+											logo={item.logo}
 										/>
 									</div>
 								))}

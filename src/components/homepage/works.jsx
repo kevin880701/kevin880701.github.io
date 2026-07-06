@@ -22,6 +22,13 @@ const Works = () => {
 							
 							return (
 								<div className="work" key={index}>
+									{work.logo && (
+										<img
+											src={work.logo}
+											alt={company}
+											className="work-image"
+										/>
+									)}
 									<div className="work-title">{company}</div>
 									<div className="work-subtitle">{position}</div>
 									<div className="work-duration">{work.startDate} - {work.endDate}</div>

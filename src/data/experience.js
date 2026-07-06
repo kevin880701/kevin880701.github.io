@@ -3,6 +3,7 @@ const myExperience = [
         startDate: "2025/10",
         endDate: "至今",
         title: "全端工程師 | 智聯服務股份有限公司",
+        logo: "/images/experience/ast-logo.png",
         description: [
             {
                 text: "擔任全端工程師，負責維護和開發行動端（Flutter）、前端（React）與後端（Go）的系統。"
@@ -26,6 +27,7 @@ const myExperience = [
         startDate: "2025/03",
         endDate: "2025/09",
         title: "APP工程師 | 艾捷科技有限公司",
+        logo: "/images/experience/ajie-logo.png",
         description: [
             {
                 text: "基於開源專案 Chromium 原始碼進行客製化 Android 瀏覽器開發。"
@@ -39,6 +41,7 @@ const myExperience = [
         startDate: "2023/11",
         endDate: "2025/02",
         title: "APP工程師 | 發條橘子科技股份有限公司",
+        logo: "/images/experience/cwo-logo.jpg",
         description: [
             {
                 text: "擔任 APP 團隊主要開發者，交付超過 5 款 Kotlin/Java 及 Flutter 應用。"
@@ -55,6 +58,7 @@ const myExperience = [
         startDate: "2020/09",
         endDate: "2023/07",
         title: "實習工程師 | 國立台中科技大學",
+        logo: "/images/experience/nutc-logo.jpg",
         description: [
             {
                 text: "參與產學合作擔任實習工程師，使用 Java 與 Kotlin 開發與維護校內系統及 Android App，應用領域涵蓋 IoT 資料串流、藍牙連線、健康照護與機器人控制。"

@@ -2,7 +2,7 @@ import React from "react";
 import "./style/experience.css";
 
 const ExperienceItem = (props) => {
-	const { date, title, description } = props;
+	const { date, title, description, logo } = props;
 
 	const formatDescription = (desc) => {
 		// 檢查是否為新的物件陣列格式
@@ -86,7 +86,23 @@ const ExperienceItem = (props) => {
 				</div>
 
 				<div className="article-right-side">
-					<div className="article-title">{title}</div>
+					<div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+						{logo && (
+							<img
+								src={logo}
+								alt=""
+								style={{
+									width: "36px",
+									height: "36px",
+									borderRadius: "6px",
+									objectFit: "contain",
+									backgroundColor: "#fff",
+									boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+								}}
+							/>
+						)}
+						<div className="article-title" style={{ margin: 0 }}>{title}</div>
+					</div>
 					<div className="article-description">
 						{formatDescription(description)}
 					</div>

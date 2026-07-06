@@ -5,6 +5,7 @@ const myEducation = [
         title: "國立台中科技大學",
         department: "資訊工程系",
         degree: "碩士",
+        logo: "/images/education/nutc-logo.jpg",
         description: [
             {
                 parts: [
@@ -59,6 +60,7 @@ const myEducation = [
         title: "國立台中科技大學",
         department: "資訊工程系",
         degree: "學士",
+        logo: "/images/education/nutc-logo.jpg",
         description: [
             {
                 parts: [

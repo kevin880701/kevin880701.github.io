@@ -221,40 +221,53 @@ function drawEducation() {
 
 		checkPageSpace(doc, entryHeight);
 		const startY = doc.y;
+		const hasLogo = edu.logo && fs.existsSync(path.join(publicDir, edu.logo));
+		const textX = hasLogo ? 70 : 40;
+		const dateWidth = hasLogo ? 485.28 : 515.28;
+
+		if (hasLogo) {
+			doc.save();
+			doc.roundedRect(40, startY + 2, 22, 22, 4).clip();
+			doc.image(path.join(publicDir, edu.logo), 40, startY + 2, { width: 22, height: 22 });
+			doc.restore();
+		}
 
 		// School Name
 		doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(11);
-		doc.text(edu.title, 40, startY);
+		doc.text(edu.title, textX, startY);
 
 		// Department & Degree
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(`${edu.department} | ${edu.degree}`, 40, startY + 16);
+		doc.text(`${edu.department} | ${edu.degree}`, textX, startY + 16);
 
 		// Date Range
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(`${edu.startDate} ~ ${edu.endDate}`, 40, startY, { align: 'right', width: 515.28 });
+		doc.text(`${edu.startDate} ~ ${edu.endDate}`, textX, startY, { align: 'right', width: dateWidth });
 
 		// Draw description bullets if present
 		let bulletY = startY + 32;
+		const bulletTextX = hasLogo ? 83 : 53;
+		const bulletTextWidth = hasLogo ? 472 : 502;
+
 		if (edu.resumeDescription && edu.resumeDescription.length > 0) {
 			edu.resumeDescription.forEach((desc) => {
 				doc.fillColor(COLOR_PRIMARY).font('Heiti').fontSize(9);
-				doc.text('•', 40, bulletY, { width: 10 });
+				doc.text('•', textX, bulletY, { width: 10 });
 
 				let heightEstimate = 12;
 
 				if (desc.text) {
-					doc.text(desc.text, 53, bulletY, { width: 502, align: 'left', lineGap: 2 });
-					heightEstimate = doc.heightOfString(desc.text, { width: 502, lineGap: 2 });
+					doc.text(desc.text, bulletTextX, bulletY, { width: bulletTextWidth, align: 'left', lineGap: 2 });
+					heightEstimate = doc.heightOfString(desc.text, { width: bulletTextWidth, lineGap: 2 });
 				} else if (desc.parts) {
 					const plainText = desc.parts.map(p => p.content).join('');
-					heightEstimate = doc.heightOfString(plainText, { width: 502, lineGap: 2 });
+					heightEstimate = doc.heightOfString(plainText, { width: bulletTextWidth, lineGap: 2 });
 
 					const firstPart = desc.parts[0];
 					const isLast = desc.parts.length === 1;
 
 					const firstOptions = {
-						width: 502,
+						width: bulletTextWidth,
 						align: 'left',
 						lineGap: 2,
 						continued: !isLast
@@ -267,7 +280,7 @@ function drawEducation() {
 					} else {
 						doc.fillColor(COLOR_PRIMARY);
 					}
-					doc.text(firstPart.content, 53, bulletY, firstOptions);
+					doc.text(firstPart.content, bulletTextX, bulletY, firstOptions);
 
 					for (let i = 1; i < desc.parts.length; i++) {
 						const part = desc.parts[i];
@@ -315,39 +328,52 @@ function drawExperience() {
 		checkPageSpace(doc, entryHeight);
 
 		const startY = doc.y;
+		const hasLogo = exp.logo && fs.existsSync(path.join(publicDir, exp.logo));
+		const textX = hasLogo ? 70 : 55;
+		const dateWidth = hasLogo ? 485.28 : 500.28;
 
-		// Draw a simple left color indicator block representing logo / timeline
-		doc.save();
-		doc.rect(40, startY + 2, 5, 25).fillColor(COLOR_ACCENT).fill();
-		doc.restore();
+		if (hasLogo) {
+			doc.save();
+			doc.roundedRect(40, startY + 2, 22, 22, 4).clip();
+			doc.image(path.join(publicDir, exp.logo), 40, startY + 2, { width: 22, height: 22 });
+			doc.restore();
+		} else {
+			// Draw a simple left color indicator block representing logo / timeline
+			doc.save();
+			doc.rect(40, startY + 2, 5, 25).fillColor(COLOR_ACCENT).fill();
+			doc.restore();
+		}
 
 		// Job Title & Date
 		doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(11);
-		doc.text(exp.title, 55, startY);
+		doc.text(exp.title, textX, startY);
 
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(`${exp.startDate} - ${exp.endDate}`, 55, startY, { align: 'right', width: 500.28 });
+		doc.text(`${exp.startDate} - ${exp.endDate}`, textX, startY, { align: 'right', width: dateWidth });
 
 		// Description bullets
-		let bulletY = startY + 20;
+		let bulletY = startY + 24;
+		const bulletTextX = hasLogo ? 83 : 68;
+		const bulletTextWidth = hasLogo ? 472 : 487;
+
 		exp.description.forEach((desc) => {
 			doc.fillColor(COLOR_PRIMARY).font('Heiti').fontSize(9);
-			doc.text('•', 55, bulletY, { width: 10 });
+			doc.text('•', textX, bulletY, { width: 10 });
 
 			let heightEstimate = 12;
 
 			if (desc.text) {
-				doc.text(desc.text, 68, bulletY, { width: 487, align: 'left', lineGap: 2 });
-				heightEstimate = doc.heightOfString(desc.text, { width: 487, lineGap: 2 });
+				doc.text(desc.text, bulletTextX, bulletY, { width: bulletTextWidth, align: 'left', lineGap: 2 });
+				heightEstimate = doc.heightOfString(desc.text, { width: bulletTextWidth, lineGap: 2 });
 			} else if (desc.parts) {
 				const plainText = desc.parts.map(p => p.content).join('');
-				heightEstimate = doc.heightOfString(plainText, { width: 487, lineGap: 2 });
+				heightEstimate = doc.heightOfString(plainText, { width: bulletTextWidth, lineGap: 2 });
 
 				const firstPart = desc.parts[0];
 				const isLast = desc.parts.length === 1;
 
 				const firstOptions = {
-					width: 487,
+					width: bulletTextWidth,
 					align: 'left',
 					lineGap: 2,
 					continued: !isLast
@@ -360,7 +386,7 @@ function drawExperience() {
 				} else {
 					doc.fillColor(COLOR_PRIMARY);
 				}
-				doc.text(firstPart.content, 68, bulletY, firstOptions);
+				doc.text(firstPart.content, bulletTextX, bulletY, firstOptions);
 
 				for (let i = 1; i < desc.parts.length; i++) {
 					const part = desc.parts[i];
