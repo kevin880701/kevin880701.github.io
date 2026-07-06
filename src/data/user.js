@@ -10,7 +10,7 @@ const INFO = {
 		phone: "0908-226-952",
 		address: "新竹市成德路177號五樓之3",
 		military: "2018/07~2019/09",
-		licences: ["輕型機車駕照", "普通重型機車駕照"],
+		licences: ["機車駕照", "汽車駕照"],
 	},
 
 
@@ -31,12 +31,12 @@ const INFO = {
 		{
 			name: "GitHub",
 			url: "https://github.com/kevin880701",
-			logo: "../icons/github-logo.png", 
+			logo: "../icons/github-logo.png",
 		},
 		{
 			name: "LinkedIn",
 			url: "https://linkedin.com/in/",
-			logo: "../icons/linkedin-logo.png", 
+			logo: "../icons/linkedin-logo.png",
 		},
 		{
 			name: "Email",

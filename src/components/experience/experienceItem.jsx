@@ -23,7 +23,7 @@ const ExperienceItem = (props) => {
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
-											color: '#007bff',
+											color: '#0e7490',
 											textDecoration: 'none'
 										}}
 									>
@@ -49,7 +49,7 @@ const ExperienceItem = (props) => {
 										target="_blank"
 										rel="noopener noreferrer"
 										style={{
-											color: '#007bff',
+											color: '#0e7490',
 											textDecoration: 'none',
 											marginLeft: '2px',
 											marginRight: '2px'

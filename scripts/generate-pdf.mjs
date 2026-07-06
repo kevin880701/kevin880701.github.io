@@ -101,7 +101,7 @@ doc.registerFont('Heiti-Bold', fontPathMedium, 'STHeitiTC-Medium');
 const COLOR_PRIMARY = '#1f2937'; // gray-800
 const COLOR_SECONDARY = '#4b5563'; // gray-600
 const COLOR_MUTED = '#9ca3af'; // gray-400
-const COLOR_ACCENT = '#2563eb'; // blue-600
+const COLOR_ACCENT = '#0e7490'; // deep cyan/teal
 const COLOR_LINE = '#e5e7eb'; // gray-200
 
 // Helper: Ensure page space
@@ -163,7 +163,7 @@ function drawMainHeader() {
 	// Subtitle: Core Info Tagline
 	doc.font('Heiti').fontSize(9).fillColor(COLOR_MUTED);
 	const expYearsStr = getExperienceYearsString();
-	doc.text(`新竹市 | ${expYearsStr} | 希望職稱: app開發工程師、後端工程師、全端工程師`, textStartX, 113);
+	doc.text(`新竹市 | ${expYearsStr}`, textStartX, 113);
 
 	doc.y = 145;
 }
@@ -648,31 +648,36 @@ function drawPublications() {
 	drawSectionTitle('著作與論文發表');
 
 	PUBLICATIONS.forEach((pub) => {
-		const descHeight = doc.heightOfString(pub.description, { width: 487, lineGap: 2 });
+		const descHeight = doc.heightOfString(pub.description, { width: 500.28, lineGap: 2 });
 		const pubHeight = 40 + descHeight + 15 + 15;
 		checkPageSpace(doc, pubHeight);
 
 		const startY = doc.y;
 
+		// Left accent color bar
+		doc.save();
+		doc.rect(40, startY + 2, 4, 14).fillColor('#39c8d0').fill();
+		doc.restore();
+
 		// Title with link
 		doc.fillColor(COLOR_ACCENT).font('Heiti-Bold').fontSize(10.5);
-		doc.text(pub.title, 50, startY, { link: pub.link, underline: true });
-		doc.y += 4;
+		doc.text(pub.title, 55, startY, { link: pub.link, underline: true });
+		doc.y += 3;
 
 		// Sub-info: Publisher | Year
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(8.5);
-		const subInfo = `${pub.publisher} (${pub.year})`;
-		doc.text(subInfo, 50, doc.y);
+		const subInfo = `${pub.publisher} • ${pub.year}`;
+		doc.text(subInfo, 55, doc.y);
 		doc.y += 6;
 
 		// Description
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
-		doc.text(pub.description, 50, doc.y, { width: 487, lineGap: 2 });
+		doc.text(pub.description, 55, doc.y, { width: 500.28, lineGap: 2 });
 		doc.y += 4;
 
 		// Features (Pill Tags)
 		if (pub.features && pub.features.length > 0) {
-			const startX = 50;
+			const startX = 55;
 			const pillHeight = 13;
 			const pillGapX = 4;
 			const pillGapY = 4;

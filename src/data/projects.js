@@ -105,10 +105,6 @@ const PROJECTS = [
         media: {
             images: [
                 {
-                    src: "/images/link-home-login.png",
-                    caption: "登入頁面"
-                },
-                {
                     src: "/images/link-home-user-home.png",
                     caption: "使用者主頁，可即時監控所有連接的智慧廚電狀態"
                 },
