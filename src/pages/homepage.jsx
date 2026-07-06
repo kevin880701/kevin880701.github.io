@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
@@ -102,7 +104,7 @@ const Homepage = () => {
 							</div>
 						</div>
 
-						
+
 						<div className="homepage-socials">
 							{INFO.socials.map((social, index) => (
 								<a
@@ -119,6 +121,21 @@ const Homepage = () => {
 									/>
 								</a>
 							))}
+
+							<a
+								href="/resume.pdf"
+								target="_blank"
+								rel="noreferrer"
+								className="homepage-resume-button"
+								title="下載簡歷"
+								download
+							>
+								<FontAwesomeIcon
+									icon={faFilePdf}
+									className="homepage-resume-icon"
+								/>
+								<span className="homepage-resume-text">下載簡歷</span>
+							</a>
 						</div>
 
 						<div className="homepage-projects">

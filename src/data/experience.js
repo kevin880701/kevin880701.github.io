@@ -94,14 +94,14 @@ const myExperience = [
                 parts: [
                     { type: "text", content: "碩士研究成果發表於國際期刊 " },
                     { type: "link", content: "《Applied Soft Computing》(2024)", url: "https://www.sciencedirect.com/science/article/abs/pii/S1568494624007373" },
-                    { type: "text", content: "。" }
+                    { type: "text", content: "，論文名稱：Human movement science-informed multi-task spatio-temporal graph convolutional networks for fitness action recognition and evaluation。" }
                 ]
             },
             {
                 parts: [
                     { type: "text", content: "碩士研究成果發表於 Springer 國際學術叢書 " },
                     { type: "link", content: "《Advances in Intelligent Systems and Computing》", url: "https://link.springer.com/chapter/10.1007/978-981-99-2287-1_100" },
-                    { type: "text", content: "。" }
+                    { type: "text", content: "，論文名稱：Applying 5PKC-Based Skeleton Partition Strategy into Spatio-Temporal Graph Convolution Networks for Fitness Action Recognition。" }
                 ]
             },
             {

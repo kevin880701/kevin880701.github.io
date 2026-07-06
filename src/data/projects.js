@@ -3,6 +3,7 @@ const PROJECTS = [
         // 基本資訊
         title: "Dental Guard 口腔衛教系統",
         slug: "dental-guard",
+        showResume: true,
         description: "榮獲2022聯發科「智在家鄉」首獎。此專案整合 Flutter APP、AI 牙菌斑影像辨識與 Go 後端服務，並導入 Docker 與 CI/CD 流程。",
         logo: "/images/dental-guard-logo.png",
         linkText: "查看專案",
@@ -74,6 +75,7 @@ const PROJECTS = [
     {
         title: "廚事寶智慧廚電",
         slug: "link-home",
+        showResume: true,
         description: "使用 Flutter 開發的 IoT 應用，串接 BluFi 硬體通訊與 Go 後端，實現智慧廚電控制，並成功上架雙平台。",
         logo: "/images/link-home-logo.png",
         linkText: "查看專案",
@@ -164,6 +166,7 @@ const PROJECTS = [
     {
         title: "移動FDA",
         slug: "fda",
+        showResume: false,
         description: "協助食藥署將傳統紙本稽查流程數位化。透過 Flutter App 導入數位表單與電子簽名功能，有效提升行政效率。",
         logo: "/images/fda-logo.png",
         linkText: "查看專案",
@@ -230,6 +233,7 @@ const PROJECTS = [
     {
         title: "Android 行為側錄系統",
         slug: "packet-recorder",
+        showResume: false,
         description: "與警政署合作，使用 Kotlin 開發 Android App，實現網路封包側錄、UI 操作行為紀錄等關鍵資安功能。",
         logo: "/images/packet-recorder-logo.png",
         linkText: "查看專案",
@@ -277,6 +281,7 @@ const PROJECTS = [
     {
         title: "EMS 能源管理系統",
         slug: "ems",
+        showResume: true,
         description: "負責規劃整體系統架構，以 Flutter 開發客製化能源動態圖表，並串接第三方登入及儲能櫃硬體。",
         logo: "/images/ems-logo.png",
         linkText: "查看專案",
@@ -339,6 +344,7 @@ const PROJECTS = [
     {
         title: "Smart Security",
         slug: "smart-security",
+        showResume: false,
         description: "以 Flutter 實現 App 內即時影像串流功能，並負責重構 UI/UX 與優化 App 整體效能。",
         logo: "/images/smart-security-logo.png",
         linkText: "查看專案",
@@ -388,6 +394,7 @@ const PROJECTS = [
     {
         title: "ShouGo 車載系統",
         slug: "shou-go",
+        showResume: false,
         description: "使用 Java 開發，建立車機與手機的資料同步機制，並實現旅程規劃、GPS 即時更新與地點推薦等功能。",
         logo: "/images/shou-go-logo.png",
         linkText: "查看專案",
@@ -445,6 +452,7 @@ const PROJECTS = [
     {
         title: "Boutik APP 二手與選物電商平台",
         slug: "boutik-app",
+        showResume: false,
         description: "以二手與選物交易為核心的一站式行動電商平台，串接商品瀏覽、下單付款、鑑定驗貨、退貨申請與客服協助等完整流程。",
         logo: "/images/boutik-logo.png",
         linkText: "查看專案",
@@ -498,6 +506,7 @@ const PROJECTS = [
     {
         title: "Lioneers AST 球隊服務 App",
         slug: "lioneers-ast",
+        showResume: true,
         description: "為新竹攻城獅球迷打造的一站式行動服務入口，整合會員、活動、門票與球隊相關資訊。",
         logo: "/images/lioneers-logo.png",
         linkText: "查看專案",

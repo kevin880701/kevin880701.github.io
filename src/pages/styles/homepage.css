@@ -151,3 +151,46 @@
 		margin-right: -25px;
 	}
 }
+
+.homepage-resume-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	text-decoration: none;
+	color: #27272a;
+	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	opacity: 0.7;
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	height: 30px;
+}
+
+.homepage-resume-button:hover {
+	transform: scale(1.05);
+	opacity: 1;
+}
+
+.homepage-resume-icon {
+	font-size: 18px;
+	color: #64748b; /* Soft gray color matching the other icons */
+	transition: transform 0.2s ease-in-out;
+}
+
+.homepage-resume-button:hover .homepage-resume-icon {
+	transform: scale(1.1);
+}
+
+.homepage-resume-text {
+	line-height: 1;
+}
+
+@media (max-width: 600px) {
+	.homepage-socials {
+		flex-wrap: wrap;
+		gap: 15px;
+	}
+	.homepage-resume-button {
+		margin-left: 0;
+	}
+}
