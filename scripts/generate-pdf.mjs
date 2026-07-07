@@ -153,56 +153,15 @@ function drawMainHeader() {
 	// Subtitle: School & Degree
 	doc.font('Heiti').fontSize(10).fillColor(COLOR_SECONDARY);
 	const primaryEdu = myEducation[0];
-	const eduText = `${primaryEdu.title} | ${primaryEdu.department.replace(/系$/, '')} ${primaryEdu.degree}畢業`;
+	const eduText = `${primaryEdu.title} | ${primaryEdu.department.replace(/系$/, '')} ${primaryEdu.degree}`;
 	doc.text(eduText, textStartX, 82);
 
 	// Subtitle: Core Info Tagline
-	doc.font('Heiti').fontSize(9).fillColor(COLOR_MUTED);
+	doc.font('Heiti').fontSize(8.5).fillColor(COLOR_MUTED);
 	const expYearsStr = getExperienceYearsString();
-	doc.text(`新竹市 | ${expYearsStr}`, textStartX, 98);
+	doc.text(`新竹市 | ${expYearsStr} | ${INFO.main.phone} | ${INFO.main.email}`, textStartX, 98);
 
 	doc.y = 130;
-}
-
-// 2. Personal Info Table
-function drawPersonalInfo() {
-	checkPageSpace(doc, 130);
-	drawSectionTitle('個人資料');
-
-	const startY = doc.y;
-	const leftColX = 50;
-	const rightColX = 300;
-	const rowGap = 16;
-
-	const leftItems = [
-		{ label: '性別與年齡', val: `${INFO.main.gender}、${dynamicAge}歲、役畢 (${INFO.main.military})` },
-		{ label: '就業狀態', val: INFO.main.status },
-		{ label: '主要手機', val: INFO.main.phone },
-		{ label: 'E-mail', val: INFO.main.email }
-	];
-
-	const rightItems = [
-		{ label: '通訊地址', val: INFO.main.address },
-		{ label: '聯絡方式', val: INFO.main.phone },
-		{ label: '駕駛執照', val: INFO.main.licences.join('、') }
-	];
-
-	// Draw Left Column
-	doc.font('Heiti').fontSize(9);
-	leftItems.forEach((item, index) => {
-		const y = startY + index * rowGap;
-		doc.fillColor(COLOR_SECONDARY).text(item.label, leftColX, y, { width: 70, align: 'left' });
-		doc.fillColor(COLOR_PRIMARY).text(item.val, leftColX + 75, y, { width: 160 });
-	});
-
-	// Draw Right Column
-	rightItems.forEach((item, index) => {
-		const y = startY + index * rowGap;
-		doc.fillColor(COLOR_SECONDARY).text(item.label, rightColX, y, { width: 70, align: 'left' });
-		doc.fillColor(COLOR_PRIMARY).text(item.val, rightColX + 75, y, { width: 160 });
-	});
-
-	doc.y = startY + leftItems.length * rowGap + 15;
 }
 
 // 3. Education Section
@@ -767,7 +726,6 @@ drawProjects();
 drawEducation();
 drawPublications();
 drawCertifications();
-drawPersonalInfo();
 
 // End the PDF generation
 doc.end();
