@@ -15,16 +15,10 @@ const INFO = {
 
 
 	certifications: [
-		{ name: "乙級電腦軟體應用技術士", issuer: "勞動部勞動力發展署技能檢定中心" },
-		{ name: "TQC 物聯網互動技術", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC 中文聽打", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC PowerPoint", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC Word", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC 中文輸入", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC 數字輸入", issuer: "財團法人中華民國電腦技能基金會" },
-		{ name: "TQC Excel", issuer: "財團法人中華民國電腦技能基金會" },
+		{ name: "電腦軟體應用乙級", issuer: "勞動部勞動力發展署技能檢定中心" },
+		{ name: "晶心開發系統技術能力檢定(ANDES)", issuer: "晶心科技" },
+		{ name: "專業英文詞彙能力國際認證(PVQC)", issuer: "GLAD" },
 		{ name: "IPAS 經濟部物聯網應用工程師-初級", issuer: "經濟部" },
-		{ name: "IPAS 經濟部行動裝置程式設計師(Android)", issuer: "經濟部" }
 	],
 
 	socials: [
