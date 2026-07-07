@@ -735,7 +735,7 @@ function drawCertifications() {
 // 8. Biography
 function drawBiography() {
 	checkPageSpace(doc, 150);
-	drawSectionTitle('自傳');
+	drawSectionTitle('個人簡介');
 
 	doc.fillColor(COLOR_PRIMARY).font('Heiti').fontSize(9.5);
 	doc.text(ABOUT.description, 40, doc.y, { lineGap: 4, align: 'justify' });
