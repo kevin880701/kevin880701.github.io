@@ -11,7 +11,11 @@
           "gh-pages-redirect-path",
           path + search + hash
         );
-        window.location.replace("/");
+        if (path.startsWith("/case")) {
+          window.location.replace("/case/");
+        } else {
+          window.location.replace("/");
+        }
       })();
     </script>
     <title>Redirecting...</title>
