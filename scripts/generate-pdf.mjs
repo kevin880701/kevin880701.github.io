@@ -147,25 +147,21 @@ function drawMainHeader() {
 	const textStartX = 140;
 	doc.fillColor(COLOR_PRIMARY);
 
-	// Name
-	doc.font('Heiti-Bold').fontSize(22).text(INFO.main.name, textStartX, 52);
-
-	// Subtitle: Company & Title
-	doc.font('Heiti-Bold').fontSize(11).fillColor(COLOR_PRIMARY);
-	doc.text('智聯服務股份有限公司 | 全端工程師', textStartX, 82);
+	// Name | Title
+	doc.font('Heiti-Bold').fontSize(18).text(`${INFO.main.name} | 全端工程師`, textStartX, 55);
 
 	// Subtitle: School & Degree
 	doc.font('Heiti').fontSize(10).fillColor(COLOR_SECONDARY);
 	const primaryEdu = myEducation[0];
 	const eduText = `${primaryEdu.title} | ${primaryEdu.department.replace(/系$/, '')} ${primaryEdu.degree}畢業`;
-	doc.text(eduText, textStartX, 98);
+	doc.text(eduText, textStartX, 82);
 
 	// Subtitle: Core Info Tagline
 	doc.font('Heiti').fontSize(9).fillColor(COLOR_MUTED);
 	const expYearsStr = getExperienceYearsString();
-	doc.text(`新竹市 | ${expYearsStr}`, textStartX, 113);
+	doc.text(`新竹市 | ${expYearsStr}`, textStartX, 98);
 
-	doc.y = 145;
+	doc.y = 130;
 }
 
 // 2. Personal Info Table
