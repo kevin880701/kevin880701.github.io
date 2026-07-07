@@ -760,14 +760,14 @@ function drawSectionTitle(title) {
 
 // Run the generation sequence
 drawMainHeader();
-drawPersonalInfo();
-drawEducation();
-drawExperience();
+drawBiography();
 drawSpecialties();
+drawExperience();
 drawProjects();
+drawEducation();
 drawPublications();
 drawCertifications();
-drawBiography();
+drawPersonalInfo();
 
 // End the PDF generation
 doc.end();
