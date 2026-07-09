@@ -33,6 +33,11 @@ const INFO = {
 			logo: "../icons/linkedin-logo.png",
 		},
 		{
+			name: "Line",
+			url: "https://line.me/ti/p/gWsAUy83Kv",
+			logo: "../icons/line-logo.png",
+		},
+		{
 			name: "Email",
 			url: "mailto:kn880701@gmail.com",
 			logo: "../icons/email-logo.png",
