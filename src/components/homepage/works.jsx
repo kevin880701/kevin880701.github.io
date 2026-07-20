@@ -2,11 +2,13 @@ import React from "react";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../common/card";
-import myExperience from "../../data/experience";
+import { useI18n } from "../../i18n/LanguageContext";
 
 import "./styles/works.css";
 
 const Works = () => {
+	const { data } = useI18n();
+	const { experience: myExperience, labels } = data;
 	// 取得所有工作經歷
 	const workExperiences = myExperience;
 
@@ -14,7 +16,7 @@ const Works = () => {
 		<div className="works">
 			<Card
 				icon={faBriefcase}
-				title="Work"
+				title={labels.experience.workCardTitle}
 				body={
 					<div className="works-body">
 						{workExperiences.map((work, index) => {

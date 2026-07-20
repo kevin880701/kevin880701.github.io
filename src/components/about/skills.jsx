@@ -1,8 +1,11 @@
 import React from "react";
-import mySkills from "../../data/skills";
+import { useI18n } from "../../i18n/LanguageContext";
 import "./styles/skills.css";
 
 const Skills = () => {
+	const { data } = useI18n();
+	const { skills: mySkills, labels } = data;
+
 	// 圖標渲染組件 - 支援自定義圖標和 Font Awesome 回退
 	const SkillIcon = ({ iconSrc, altText, className }) => {
 		return (
@@ -25,7 +28,7 @@ const Skills = () => {
 
 	return (
 		<div className="skills-container">
-			<div className="skills-title">專業技能（Skills）</div>
+			<div className="skills-title">{labels.skills.title}</div>
 			<div className="skills-content">
 				{mySkills.map((skillGroup, index) => (
 					<div className="skill-category" key={index}>

@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import INFO from "../../data/user";
+import { useI18n } from "../../i18n/LanguageContext";
 
 import "./styles/logo.css";
 
 const Logo = (props) => {
 	let { width, link } = props;
+	const { data, localizedPath } = useI18n();
+	const { info: INFO } = data;
 
 	if (link === undefined) {
 		link = true;
@@ -18,7 +20,7 @@ const Logo = (props) => {
 
 	return (
 		<React.Fragment>
-			{link ? <Link to="/">{imageElement}</Link> : imageElement}
+			{link ? <Link to={localizedPath("/")}>{imageElement}</Link> : imageElement}
 		</React.Fragment>
 	);
 };

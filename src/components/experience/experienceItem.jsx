@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { useI18n } from "../../i18n/LanguageContext";
 import "./style/experience.css";
 
 const ExperienceItem = (props) => {
 	const { date, title, description, logo } = props;
+	const { localizedPath } = useI18n();
 
 	const formatDescription = (desc) => {
 		// 檢查是否為新的物件陣列格式
@@ -16,6 +20,21 @@ const ExperienceItem = (props) => {
 							if (part.type === 'text') {
 								return <span key={partIndex}>{part.content}</span>;
 							} else if (part.type === 'link') {
+								if (part.url.startsWith('/')) {
+									return (
+										<Link
+											key={partIndex}
+											to={localizedPath(part.url)}
+											style={{
+												color: '#0e7490',
+												textDecoration: 'none'
+											}}
+										>
+											{part.content}
+										</Link>
+									);
+								}
+
 								return (
 									<a
 										key={partIndex}
@@ -44,19 +63,33 @@ const ExperienceItem = (props) => {
 							• {item.text}
 							{item.links && item.links.map((link, linkIndex) => (
 								<React.Fragment key={linkIndex}>
-									<a
-										href={link.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										style={{
-											color: '#0e7490',
-											textDecoration: 'none',
-											marginLeft: '2px',
-											marginRight: '2px'
-										}}
-									>
-										{link.text}
-									</a>
+									{link.url.startsWith('/') ? (
+										<Link
+											to={localizedPath(link.url)}
+											style={{
+												color: '#0e7490',
+												textDecoration: 'none',
+												marginLeft: '2px',
+												marginRight: '2px'
+											}}
+										>
+											{link.text}
+										</Link>
+									) : (
+										<a
+											href={link.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											style={{
+												color: '#0e7490',
+												textDecoration: 'none',
+												marginLeft: '2px',
+												marginRight: '2px'
+											}}
+										>
+											{link.text}
+										</a>
+									)}
 								</React.Fragment>
 							))}
 							{item.suffix || ''}

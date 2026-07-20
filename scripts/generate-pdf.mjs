@@ -4,19 +4,22 @@ import PDFDocument from 'pdfkit';
 
 // Paths
 const currentDir = process.cwd();
-const dataDir = path.join(currentDir, 'src/data');
+const translationsDir = path.join(currentDir, 'src/i18n/translations');
 const publicDir = path.join(currentDir, 'public');
-const outputPath = path.join(publicDir, 'resume.pdf');
 
 // Import ES modules dynamically
-const { default: INFO } = await import(path.join(dataDir, 'user.js'));
-const { default: RESUME_DATA } = await import(path.join(dataDir, 'resume.js'));
-const { default: myExperience } = await import(path.join(dataDir, 'experience.js'));
-const { default: ABOUT } = await import(path.join(dataDir, 'about.js'));
-const { default: mySkills } = await import(path.join(dataDir, 'skills.js'));
-const { default: PROJECTS } = await import(path.join(dataDir, 'projects.js'));
-const { default: PUBLICATIONS } = await import(path.join(dataDir, 'paper.js'));
-const { default: myEducation } = await import(path.join(dataDir, 'education.js'));
+const { default: zhTW } = await import(path.join(translationsDir, 'zh-TW.js'));
+const { default: en } = await import(path.join(translationsDir, 'en.js'));
+
+let doc;
+let INFO;
+let ABOUT;
+let myEducation;
+let myExperience;
+let mySkills;
+let PROJECTS;
+let PUBLICATIONS;
+let LABELS;
 
 // Calculate age dynamically from birthday in user.js
 function calculateAge(birthdayString) {
@@ -29,11 +32,9 @@ function calculateAge(birthdayString) {
 	}
 	return age;
 }
-const dynamicAge = calculateAge(INFO.main.birthday);
-
 // Calculate total work experience dynamically from myExperience (max - min)
 function getExperienceYearsString() {
-	if (!myExperience || myExperience.length === 0) return '無工作經歷';
+	if (!myExperience || myExperience.length === 0) return LABELS.noWorkExperience;
 
 	let minDate = new Date();
 	let maxDate = new Date(0);
@@ -43,7 +44,7 @@ function getExperienceYearsString() {
 		const start = new Date(sYear, sMonth - 1, 1);
 
 		let end;
-		if (exp.endDate === "至今") {
+		if (exp.endDate === "至今" || exp.endDate === "Present") {
 			end = new Date();
 		} else {
 			const [eYear, eMonth] = exp.endDate.split('/').map(Number);
@@ -56,24 +57,23 @@ function getExperienceYearsString() {
 
 	const totalMonths = (maxDate.getFullYear() - minDate.getFullYear()) * 12 + (maxDate.getMonth() - minDate.getMonth());
 	const yearsDecimal = (totalMonths / 12).toFixed(1);
-	return `${yearsDecimal}年工作經歷`;
+	return LABELS.workExperienceYears(yearsDecimal);
 }
 
-// Initialize PDF Document
-const doc = new PDFDocument({
-	size: 'A4',
-	margins: { top: 40, bottom: 40, left: 40, right: 40 },
-	autoFirstPage: true
-});
+function setupDocument(outputPath) {
+	doc = new PDFDocument({
+		size: 'A4',
+		margins: { top: 40, bottom: 40, left: 40, right: 40 },
+		autoFirstPage: true
+	});
 
-// Stream PDF to file
-const writeStream = fs.createWriteStream(outputPath);
-doc.pipe(writeStream);
+	const writeStream = fs.createWriteStream(outputPath);
+	doc.pipe(writeStream);
 
-// Override doc.text to automatically sanitize Chinese punctuation marks
-// that cause font CID mapping bugs (rendering as weird symbols like ¬, ¯, ︾)
-const originalText = doc.text;
-doc.text = function (text, ...args) {
+	// Override doc.text to automatically sanitize Chinese punctuation marks
+	// that cause font CID mapping bugs (rendering as weird symbols like ¬, ¯, ︾)
+	const originalText = doc.text;
+	doc.text = function (text, ...args) {
 	if (typeof text === 'string') {
 		text = text
 			.replace(/「/g, '"')
@@ -88,14 +88,17 @@ doc.text = function (text, ...args) {
 			.replace(/）/g, ')');
 	}
 	return originalText.call(this, text, ...args);
-};
+	};
+
+	doc.registerFont('Heiti', fontPathLight, 'STHeitiTC-Light');
+	doc.registerFont('Heiti-Bold', fontPathMedium, 'STHeitiTC-Medium');
+
+	return writeStream;
+}
 
 // Register Fonts (macOS System Chinese Font STHeiti)
 const fontPathLight = '/System/Library/Fonts/STHeiti Light.ttc';
 const fontPathMedium = '/System/Library/Fonts/STHeiti Medium.ttc';
-
-doc.registerFont('Heiti', fontPathLight, 'STHeitiTC-Light');
-doc.registerFont('Heiti-Bold', fontPathMedium, 'STHeitiTC-Medium');
 
 // Colors
 const COLOR_PRIMARY = '#1f2937'; // gray-800
@@ -122,13 +125,13 @@ function drawHeaderOnNewPage(doc) {
 function drawMainHeader() {
 	// Header visual block background (soft light gray)
 	doc.save();
-	doc.rect(40, 40, 515.28, 90).fill('#f8fafc');
+	doc.rect(40, 40, 515.28, 112).fill('#f8fafc');
 	doc.restore();
 
 	// Profile image (avatar.png) circular crop on the left
 	const photoPath = path.join(publicDir, 'avatar.png');
 	const photoX = 80;
-	const photoY = 85;
+	const photoY = 96;
 	const photoRadius = 35;
 
 	if (fs.existsSync(photoPath)) {
@@ -145,29 +148,69 @@ function drawMainHeader() {
 
 	// Name & Core Subtitles
 	const textStartX = 140;
+	const textWidth = 385;
 	doc.fillColor(COLOR_PRIMARY);
 
+	const primaryEdu = myEducation[0];
+	const titleText = `${INFO.main.name} | ${LABELS.jobTitle}`;
+	const eduText = `${primaryEdu.title} | ${primaryEdu.department.replace(/系$/, '')} ${primaryEdu.degree}`;
+	const expYearsStr = getExperienceYearsString();
+	const infoText = `${LABELS.location} | ${expYearsStr} | ${INFO.main.phone} | ${INFO.main.email}`;
+
+	doc.font('Heiti-Bold').fontSize(18);
+	const titleHeight = doc.heightOfString(titleText, {
+		width: textWidth,
+		lineGap: 1,
+	});
+
+	doc.font('Heiti').fontSize(10);
+	const eduHeight = doc.heightOfString(eduText, {
+		width: textWidth,
+		lineGap: 1,
+	});
+
+	doc.font('Heiti').fontSize(8.5);
+	const infoHeight = doc.heightOfString(infoText, {
+		width: textWidth,
+		lineGap: 1,
+	});
+
+	const textGap = 8;
+	const headerTop = 40;
+	const headerHeight = 112;
+	const totalTextHeight = titleHeight + eduHeight + infoHeight + textGap * 2;
+	let currentTextY = headerTop + (headerHeight - totalTextHeight) / 2;
+
 	// Name | Title
-	doc.font('Heiti-Bold').fontSize(18).text(`${INFO.main.name} | 全端工程師`, textStartX, 55);
+	doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(18).text(titleText, textStartX, currentTextY, {
+		width: textWidth,
+		lineGap: 1,
+	});
+	currentTextY += titleHeight + textGap;
 
 	// Subtitle: School & Degree
 	doc.font('Heiti').fontSize(10).fillColor(COLOR_SECONDARY);
-	const primaryEdu = myEducation[0];
-	const eduText = `${primaryEdu.title} | ${primaryEdu.department.replace(/系$/, '')} ${primaryEdu.degree}`;
-	doc.text(eduText, textStartX, 82);
+	doc.text(eduText, textStartX, currentTextY, {
+		width: textWidth,
+		lineGap: 1,
+	});
+	currentTextY += eduHeight + textGap;
 
 	// Subtitle: Core Info Tagline
 	doc.font('Heiti').fontSize(8.5).fillColor(COLOR_MUTED);
-	const expYearsStr = getExperienceYearsString();
-	doc.text(`新竹市 | ${expYearsStr} | ${INFO.main.phone} | ${INFO.main.email}`, textStartX, 98);
+	doc.text(infoText, textStartX, currentTextY, {
+		width: textWidth,
+		lineGap: 1,
+	});
 
-	doc.y = 130;
+	doc.y = 152;
 }
 
 // 3. Education Section
 function drawEducation() {
-	checkPageSpace(doc, 120);
-	drawSectionTitle('學歷');
+	doc.addPage();
+	drawHeaderOnNewPage(doc);
+	drawSectionTitle(LABELS.education);
 
 	myEducation.forEach((edu) => {
 		// Calculate height estimate for this education entry
@@ -267,11 +310,11 @@ function drawEducation() {
 // 4. Experience Section
 function drawExperience() {
 	checkPageSpace(doc, 100);
-	drawSectionTitle('工作經驗');
+	drawSectionTitle(LABELS.workExperience);
 
 	// Total experience
 	doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(10);
-	doc.text(`總年資：${getExperienceYearsString()}`, 40, doc.y);
+	doc.text(`${LABELS.totalExperience}: ${getExperienceYearsString()}`, 40, doc.y);
 	doc.y += 15;
 
 	// Loop through myExperience (which matches experience.js)
@@ -377,7 +420,7 @@ function drawSpecialties() {
 	if (specialties.length === 0) return;
 
 	checkPageSpace(doc, 150);
-	drawSectionTitle('專長');
+	drawSectionTitle(LABELS.specialties);
 
 	specialties.forEach((spec) => {
 		const specHeight = doc.heightOfString(spec.description, { width: 487, lineGap: 2.5 }) + 30;
@@ -470,8 +513,9 @@ function drawProjects() {
 	const resumeProjects = PROJECTS.filter(p => p.showResume);
 	if (resumeProjects.length === 0) return;
 
-	checkPageSpace(doc, 150);
-	drawSectionTitle('專案成就');
+	doc.addPage();
+	drawHeaderOnNewPage(doc);
+	drawSectionTitle(LABELS.projects);
 
 	resumeProjects.forEach((proj) => {
 		const descHeight = doc.heightOfString(proj.description, { width: 362, lineGap: 2 });
@@ -673,7 +717,7 @@ function drawPublications() {
 // 7. Certifications
 function drawCertifications() {
 	checkPageSpace(doc, 150);
-	drawSectionTitle('證照');
+	drawSectionTitle(LABELS.certifications);
 
 	const startY = doc.y;
 	let certY = startY;
@@ -694,7 +738,7 @@ function drawCertifications() {
 // 8. Biography
 function drawBiography() {
 	checkPageSpace(doc, 150);
-	drawSectionTitle('個人簡介');
+	drawSectionTitle(LABELS.biography);
 
 	doc.fillColor(COLOR_PRIMARY).font('Heiti').fontSize(9.5);
 	doc.text(ABOUT.description, 40, doc.y, { lineGap: 4, align: 'justify' });
@@ -717,19 +761,50 @@ function drawSectionTitle(title) {
 	doc.y = titleY + 28;
 }
 
-// Run the generation sequence
-drawMainHeader();
-drawBiography();
-drawSpecialties();
-drawExperience();
-drawProjects();
-drawEducation();
-drawPublications();
-drawCertifications();
+function getPdfLabels(language, data) {
+	const isEnglish = language === 'en';
+	return {
+		jobTitle: isEnglish ? 'Full-Stack Engineer' : '全端工程師',
+		location: isEnglish ? 'Hsinchu City' : '新竹市',
+		noWorkExperience: isEnglish ? 'No work experience' : '無工作經歷',
+		workExperienceYears: (years) => isEnglish ? `${years} years of work experience` : `${years}年工作經歷`,
+		education: data.labels.experience.education,
+		workExperience: isEnglish ? 'Work Experience' : '工作經驗',
+		totalExperience: isEnglish ? 'Total Experience' : '總年資',
+		specialties: isEnglish ? 'Specialties' : '專長',
+		projects: isEnglish ? 'Project Achievements' : '專案成就',
+		certifications: isEnglish ? 'Certifications' : '證照',
+		biography: isEnglish ? 'Profile' : '個人簡介',
+	};
+}
 
-// End the PDF generation
-doc.end();
+async function generateResume(language, data, filename) {
+	INFO = data.info;
+	ABOUT = data.about;
+	myEducation = data.education;
+	myExperience = data.experience;
+	mySkills = data.skills;
+	PROJECTS = data.projects;
+	PUBLICATIONS = data.publications;
+	LABELS = getPdfLabels(language, data);
 
-writeStream.on('finish', () => {
-	console.log('PDF Resume successfully generated dynamically at public/resume.pdf!');
-});
+	const outputPath = path.join(publicDir, filename);
+	const writeStream = setupDocument(outputPath);
+
+	drawMainHeader();
+	drawBiography();
+	drawSpecialties();
+	drawExperience();
+	drawProjects();
+	drawEducation();
+	drawPublications();
+	drawCertifications();
+
+	doc.end();
+
+	await new Promise((resolve) => writeStream.on('finish', resolve));
+	console.log(`PDF Resume successfully generated at public/${filename}!`);
+}
+
+await generateResume('zh-TW', zhTW, 'resume.zh-TW.pdf');
+await generateResume('en', en, 'resume.en.pdf');

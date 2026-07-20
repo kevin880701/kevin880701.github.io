@@ -2,11 +2,14 @@ import React from "react";
 
 import ProjectItem from "./projectItem";
 
-import PROJECTS from "../../data/projects";
+import { useI18n } from "../../i18n/LanguageContext";
 
 import "./styles/allProjects.css";
 
 const AllProjects = () => {
+	const { data } = useI18n();
+	const { projects: PROJECTS } = data;
+
 	return (
 		<div className="all-projects-container">
 			{PROJECTS.map((project, index) => (

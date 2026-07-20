@@ -6,13 +6,13 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
-
 import "./styles/contact.css";
-import CONTACT from "../data/contact";
+import { useI18n } from "../i18n/LanguageContext";
 
 const Contact = () => {
+	const { data } = useI18n();
+	const { info: INFO, contact: CONTACT, seo: SEO } = data;
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);

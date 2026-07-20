@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 
+import { useI18n } from "../../i18n/LanguageContext";
 import "./styles/projectItem.css";
 
 const ProjectItem = (props) => {
 	const { logo, title, description, linkText, link, projectSlug } = props;
+	const { data, localizedPath } = useI18n();
+	const { projects: projectLabels } = data.labels;
 
 	// 如果有 projectSlug，使用內部路由；沒有則使用外部連結
 	const hasSlug = projectSlug !== undefined && projectSlug !== null;
-	const linkPath = hasSlug ? `/project/${projectSlug}` : link;
+	const linkPath = hasSlug ? localizedPath(`/project/${projectSlug}`) : link;
 	const isExternalLink = !hasSlug;
 
 
@@ -34,7 +37,7 @@ const ProjectItem = (props) => {
 							</div>
 
 							<div className="project-link-text">
-								{hasSlug ? "查看詳情" : (linkText || "查看專案")}
+								{hasSlug ? projectLabels.viewDetails : (linkText || projectLabels.viewProject)}
 							</div>
 						</div>
 					</div>

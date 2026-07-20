@@ -1,10 +1,13 @@
 import React from "react";
 
-import INFO from "../../data/user";
+import { useI18n } from "../../i18n/LanguageContext";
 
 import "./styles/socials.css";
 
 const Socials = () => {
+	const { data } = useI18n();
+	const { info: INFO, labels } = data;
+
 	return (
 		<div className="socials">
 			{INFO.socials.map((social, index) => (
@@ -20,7 +23,7 @@ const Socials = () => {
 						<div className="social-text">
 							{social.name === "Email" 
 								? INFO.main.email 
-								: `Follow on ${social.name}`}
+								: `${labels.common.followOn} ${social.name}`}
 						</div>
 					</a>
 				</div>

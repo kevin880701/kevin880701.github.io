@@ -9,12 +9,13 @@ import NavBar from "../components/common/navBar";
 import Works from "../components/homepage/works";
 import AllProjects from "../components/projects/allProjects";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
+import { useI18n } from "../i18n/LanguageContext";
 
 import "./styles/homepage.css";
 
 const Homepage = () => {
+	const { data, language } = useI18n();
+	const { info: INFO, seo: SEO, labels } = data;
 	const [stayLogo, setStayLogo] = useState(false);
 	const [logoSize, setLogoSize] = useState(80);
 	const [oldLogoSize, setOldLogoSize] = useState(80);
@@ -123,18 +124,18 @@ const Homepage = () => {
 							))}
 
 							<a
-								href="/resume.pdf"
+								href={language === "en" ? "/resume.en.pdf" : "/resume.zh-TW.pdf"}
 								target="_blank"
 								rel="noreferrer"
 								className="homepage-resume-button"
-								title="下載簡歷"
+								title={labels.home.downloadResume}
 								download
 							>
 								<FontAwesomeIcon
 									icon={faFilePdf}
 									className="homepage-resume-icon"
 								/>
-								<span className="homepage-resume-text">下載簡歷</span>
+								<span className="homepage-resume-text">{labels.home.downloadResume}</span>
 							</a>
 						</div>
 

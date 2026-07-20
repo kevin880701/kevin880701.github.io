@@ -6,14 +6,15 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
-import INFO from "../data/user";
-import ABOUT from "../data/about";
-import SEO from "../data/seo";
+import { useI18n } from "../i18n/LanguageContext";
 
 import "./styles/about.css";
 import Skills from "../components/about/skills";
 
 const About = () => {
+	const { data } = useI18n();
+	const { info: INFO, about: ABOUT, seo: SEO } = data;
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);

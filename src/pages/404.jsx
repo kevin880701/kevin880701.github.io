@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
@@ -6,14 +7,17 @@ import { faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
 import NavBar from "../components/common/navBar";
 import Logo from "../components/common/logo";
 
-import INFO from "../data/user";
+import { useI18n } from "../i18n/LanguageContext";
 
 import "./styles/404.css";
 
 const Notfound = () => {
+	const { data, localizedPath } = useI18n();
+	const { info: INFO, labels } = data;
+
 	useEffect(() => {
 		document.title = `404 | ${INFO.main.title}`;
-	}, []);
+	}, [INFO.main.title]);
 
 	return (
 		<React.Fragment>
@@ -28,18 +32,17 @@ const Notfound = () => {
 					<div className="notfound-container">
 						<div className="notfound-message">
 							<div className="notfound-title">
-								Oops! <FontAwesomeIcon icon={faFaceSadTear} />
+								{labels.notFound.title} <FontAwesomeIcon icon={faFaceSadTear} />
 							</div>
 							<div className="not-found-message">
-								We can't seem to find the page you're looking
-								for.
+								{labels.notFound.messagePrefix}
 								<br />
 								The requested URL "{window.location.href}" was
-								not found on this server.
+								{labels.notFound.messageSuffix}
 							</div>
-							<a href="/" className="not-found-link">
-								Go back to the home page
-							</a>
+							<Link to={localizedPath("/")} className="not-found-link">
+								{labels.notFound.backHome}
+							</Link>
 						</div>
 					</div>
 				</div>

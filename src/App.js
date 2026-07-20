@@ -12,6 +12,8 @@ import Notfound from "./pages/404";
 import { TRACKING_ID } from "./data/tracking";
 import "./App.css";
 import ProjectDetail from "./pages/projectDetail";
+import { LanguageProvider } from "./i18n/LanguageContext";
+import LanguageSwitcher from "./components/common/languageSwitcher";
 
 function App() {
   useEffect(() => {
@@ -21,17 +23,26 @@ function App() {
   }, []);
 
   return (
+    <LanguageProvider>
       <div className="App">
+        <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/:language" element={<Homepage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/:language/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/:language/projects" element={<Projects />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/:language/project/:id" element={<ProjectDetail />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/:language/experience" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/:language/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>
+    </LanguageProvider>
   );
 }
 

@@ -6,12 +6,14 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import AllProjects from "../components/projects/allProjects";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
+import { useI18n } from "../i18n/LanguageContext";
 
 import "./styles/projects.css";
 
 const Projects = () => {
+	const { data } = useI18n();
+	const { info: INFO, seo: SEO, labels } = data;
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -21,7 +23,7 @@ const Projects = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Projects | ${INFO.main.title}`}</title>
+				<title>{`${labels.projects.pageTitle} | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -39,11 +41,11 @@ const Projects = () => {
 					</div>
 					<div className="projects-container">
 						<div className="title projects-title">
-							用程式構築想法，用技術解決問題。
+							{labels.projects.title}
 						</div>
 
 						<div className="subtitle projects-subtitle">
-							在過去的幾年中，我投入了多個專案，從 IoT 應用、AI 影像辨識到企業級系統。每一個專案都代表著一次技術挑戰與成長。這裡不僅僅是成果的展示，更是我解決問題的思路與經驗累積。
+							{labels.projects.description}
 						</div>
 
 						<div className="projects-list">

@@ -7,15 +7,21 @@ import { faArrowLeft, faExternalLinkAlt, faCalendarAlt, faCode, faInfoCircle } f
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 
-import INFO from "../data/user";
-import PROJECTS from "../data/projects";
-import SEO from "../data/seo";
+import { useI18n } from "../i18n/LanguageContext";
 
 import "./styles/projectDetail.css";
 
 const ProjectDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { data, localizedPath } = useI18n();
+    const {
+        info: INFO,
+        projects: PROJECTS,
+        seo: SEO,
+        labels,
+    } = data;
+    const projectLabels = labels.projectDetail;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +31,7 @@ const ProjectDetail = () => {
     const project = PROJECTS.find((proj) => proj.slug === id);
 
     if (!project) {
-        return <div>專案不存在</div>;
+        return <div>{projectLabels.notFound}</div>;
     }
 
     const currentSEO = SEO.find((item) => item.page === "projects");
@@ -46,10 +52,10 @@ const ProjectDetail = () => {
                         <div className="project-detail-back">
                             <button
                                 className="project-detail-back-button"
-                                onClick={() => navigate("/projects")}
+                                onClick={() => navigate(localizedPath("/projects"))}
                             >
                                 <FontAwesomeIcon icon={faArrowLeft} />
-                                <span>回到專案列表</span>
+                                <span>{projectLabels.backToProjects}</span>
                             </button>
                         </div>
 
@@ -68,26 +74,26 @@ const ProjectDetail = () => {
                             <div className="project-detail-section">
                                 <h2 className="project-detail-section-title">
                                     <FontAwesomeIcon icon={faInfoCircle} className="section-icon" />
-                                    專案說明
+                                    {projectLabels.overview}
                                 </h2>
                                 <div className="project-detail-description-content">
                                     {project.descriptions?.map((paragraph, index) => (
                                         <p key={index} className="description-paragraph">{paragraph}</p>
-                                    )) || <p>專案說明準備中...</p>}
+                                    )) || <p>{projectLabels.descriptionPending}</p>}
                                 </div>
                             </div>
 
                             <div className="project-detail-section">
                                 <h2 className="project-detail-section-title">
                                     <FontAwesomeIcon icon={faExternalLinkAlt} className="section-icon" />
-                                    專案展示
+                                    {projectLabels.showcase}
                                 </h2>
                                 <div className="project-detail-media">
                                     <div className="media-container">
                                         {/* 影片區塊 */}
                                         {project.media?.videos?.length > 0 && (
                                             <div className="media-section">
-                                                <h3 className="media-section-title">影片展示</h3>
+                                                <h3 className="media-section-title">{projectLabels.videos}</h3>
                                                 <div className="videos-grid">
                                                     {project.media.videos.map((video, index) => {
                                                         // 支援舊格式(字串)和新格式(物件)
@@ -103,7 +109,7 @@ const ProjectDetail = () => {
                                                                         poster={`/images/${project.title.split(' ')[0]}-poster.jpg`}
                                                                     >
                                                                         <source src={videoSrc} type="video/mp4" />
-                                                                        您的瀏覽器不支持 video 標籤。
+                                                                        {projectLabels.videoUnsupported}
                                                                     </video>
                                                                     {videoCaption && (
                                                                         <div className="media-caption">
@@ -121,13 +127,13 @@ const ProjectDetail = () => {
                                         {/* 圖片區塊 */}
                                         {project.media?.images?.length > 0 && (
                                             <div className="media-section">
-                                                <h3 className="media-section-title">圖片展示</h3>
+                                                <h3 className="media-section-title">{projectLabels.images}</h3>
                                                 <div className="images-grid">
                                                     {project.media.images.map((image, index) => {
                                                         // 支援舊格式(字串)和新格式(物件)
                                                         const imageSrc = typeof image === 'string' ? image : image.src;
                                                         const imageCaption = typeof image === 'object' ? image.caption : null;
-                                                        const altText = imageCaption || `${project.title} 截圖 ${index + 1}`;
+                                                        const altText = imageCaption || `${project.title} ${projectLabels.screenshot} ${index + 1}`;
 
                                                         return (
                                                             <div key={index} className="image-item">
@@ -156,7 +162,7 @@ const ProjectDetail = () => {
 
                                         {(!project.media?.images?.length && !project.media?.videos?.length) && (
                                             <div className="no-media">
-                                                <p>媒體內容準備中...</p>
+                                                <p>{projectLabels.mediaPending}</p>
                                             </div>
                                         )}
                                     </div>
@@ -166,7 +172,7 @@ const ProjectDetail = () => {
                             <div className="project-detail-section">
                                 <h2 className="project-detail-section-title">
                                     <FontAwesomeIcon icon={faCode} className="section-icon" />
-                                    技術特色
+                                    {projectLabels.features}
                                 </h2>
                                 <div className="project-detail-features">
                                     {project.features?.map((feature, index) => (
@@ -181,7 +187,7 @@ const ProjectDetail = () => {
                             <div className="project-detail-section">
                                 <h2 className="project-detail-section-title">
                                     <FontAwesomeIcon icon={faCalendarAlt} className="section-icon" />
-                                    專案成果
+                                    {projectLabels.achievements}
                                 </h2>
                                 <div className="project-detail-achievements">
                                     {project.achievements?.map((achievement, index) => (

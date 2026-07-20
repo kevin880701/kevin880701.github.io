@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { useI18n } from "../../i18n/LanguageContext";
 import "./styles/footer.css";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+	const { data, localizedPath } = useI18n();
+	const { nav } = data.labels;
 
 	return (
 		<React.Fragment>
@@ -12,19 +15,19 @@ const Footer = () => {
 				<div className="footer-links">
 					<ul className="footer-nav-link-list">
 						<li className="footer-nav-link-item">
-							<Link to="/">Home</Link>
+							<Link to={localizedPath("/")}>{nav.home}</Link>
 						</li>
 						<li className="footer-nav-link-item">
-							<Link to="/about">About</Link>
+							<Link to={localizedPath("/about")}>{nav.about}</Link>
 						</li>
 						<li className="footer-nav-link-item">
-							<Link to="/projects">Projects</Link>
+							<Link to={localizedPath("/projects")}>{nav.projects}</Link>
 						</li>
 						<li className="footer-nav-link-item">
-							<Link to="/experience">Experience</Link>
+							<Link to={localizedPath("/experience")}>{nav.experience}</Link>
 						</li>
 						<li className="footer-nav-link-item">
-							<Link to="/contact">Contact</Link>
+							<Link to={localizedPath("/contact")}>{nav.contact}</Link>
 						</li>
 					</ul>
 				</div>
