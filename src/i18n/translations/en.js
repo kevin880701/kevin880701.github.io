@@ -29,7 +29,7 @@ const en = {
 			},
 			{
 				name: "LinkedIn",
-				url: "https://linkedin.com/in/",
+				url: "https://www.linkedin.com/in/%E6%B5%A9%E7%84%B6-%E5%8A%89-27b50a193/",
 				logo: "../icons/linkedin-logo.png",
 			},
 			{
