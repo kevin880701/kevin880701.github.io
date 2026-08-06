@@ -47,7 +47,7 @@ const en = {
 		homepage: {
 			title: "Cross-Platform Mobile App Developer, specialized in Flutter, Android, Go Backend, and AI Technologies.",
 			description:
-				"I am a full-stack developer with five years of experience, skilled in Flutter, Android (Kotlin, Java), AI model training, and Go backend. I am also familiar with CI/CD processes and have complete experience in launching projects from scratch.",
+				"I am a full-stack developer skilled in Flutter, Android (Kotlin, Java), AI model training, and Go backend. I am also familiar with CI/CD processes and have complete experience in launching projects from scratch.",
 		},
 	
 		experience: {
@@ -59,7 +59,7 @@ const en = {
 	about: {
 	    title: "I am Hao-Ran Liu, a full-stack engineer who loves technology and enjoys challenges.",
 	    description:
-	        "I am Hao-Ran Liu, a full-stack engineer with five years of practical experience, familiar with iOS / Android App development, Web frontend, Go backend services, and automated deployment process construction.\n\n" +
+	        "I am Hao-Ran Liu, a full-stack engineer familiar with iOS / Android App development, Web frontend, Go backend services, and automated deployment process construction.\n\n" +
 	        "In projects, I am not only responsible for feature development but also frequently participate in architecture planning, cross-platform integration, and post-launch maintenance. With experience in App, frontend, backend, and deployment, I can understand requirements from a complete system perspective, plan data flows, and implement stable and scalable product features.\n\n" +
 	        "In practical development, I utilize AI Agents to assist and improve efficiency; meanwhile, I continue to refine my system design, code architecture, and problem analysis skills to ensure I can judge the feasibility of AI-generated code and correct the direction when it deviates from requirements.\n\n" +
 	        "I believe my advantage lies in quickly understanding product requirements and planning stable, maintainable, and scalable technical solutions from a full-stack perspective. I expect to continue accumulating technical depth and creating practical value in challenging product and system development."
