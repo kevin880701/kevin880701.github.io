@@ -45,9 +45,9 @@ const en = {
 		],
 	
 		homepage: {
-			title: "Cross-Platform Mobile App Developer, specialized in Flutter, Android, Go Backend, and AI Technologies.",
+			title: "Cross-Platform Mobile App Developer, specialized in Go Backend and AI Technologies.",
 			description:
-				"I am a full-stack developer skilled in Flutter, Android (Kotlin, Java), AI model training, and Go backend. I am also familiar with CI/CD processes and have complete experience in launching projects from scratch.",
+				"I am a full-stack developer skilled in Mobile App Development, AI model training, and Go backend. I am also familiar with CI/CD processes and have complete experience in launching projects from scratch.",
 		},
 	
 		experience: {

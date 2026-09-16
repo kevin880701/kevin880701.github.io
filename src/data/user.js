@@ -45,9 +45,9 @@ const INFO = {
 	],
 
 	homepage: {
-		title: "跨平台APP開發工程師，專精 Flutter、Android 與 Go 後端、AI技術。",
+		title: "跨平台 APP 開發工程師，專精 Go 後端與 AI 技術。",
 		description:
-			"我是一位全端開發工程師，所擁有的技術有 Flutter、Android (Kotlin、Java)、AI模型訓練與 Go 後端。同時熟悉 CI/CD 流程。有專案從零到一成功上架的完整經驗。",
+			"我是一位全端工程師，熟悉 APP 開發、AI 模型訓練與 Go 後端，同時熟悉 CI/CD 流程，並具備專案從零到一成功上架的完整經驗。",
 	},
 
 	experience: {
