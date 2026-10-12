@@ -45,9 +45,9 @@ const INFO = {
 	],
 
 	homepage: {
-		title: "跨平台 APP 開發工程師，專精 Go 後端與 AI 技術。",
+		title: "全端工程師，具備網頁、跨平台 APP、後端與 AI 整合能力。",
 		description:
-			"我是一位全端工程師，熟悉 APP 開發、AI 模型訓練與 Go 後端，同時熟悉 CI/CD 流程，並具備專案從零到一成功上架的完整經驗。",
+			"具備網頁、跨平台 APP 與後端架構開發能力，並整合 AI 技術與 CI/CD 自動化流程。",
 	},
 
 	experience: {

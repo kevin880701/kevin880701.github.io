@@ -45,9 +45,9 @@ const en = {
 		],
 	
 		homepage: {
-			title: "Cross-Platform Mobile App Developer, specialized in Go Backend and AI Technologies.",
+			title: "Full-Stack Engineer with experience across Web, Cross-Platform Mobile Apps, Backend, and AI integration.",
 			description:
-				"I am a full-stack developer skilled in Mobile App Development, AI model training, and Go backend. I am also familiar with CI/CD processes and have complete experience in launching projects from scratch.",
+				"Skilled in Web, cross-platform mobile apps, and backend architecture development, integrated with AI technologies and CI/CD automated workflow practices.",
 		},
 	
 		experience: {
