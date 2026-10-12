@@ -47,8 +47,7 @@ const zhTW = {
 
 		homepage: {
 			title: "全端工程師，具備網頁、跨平台 APP、後端與 AI 整合能力。",
-			description:
-				"具備網頁、跨平台 APP 與後端架構開發能力，並整合 AI 技術與 CI/CD 自動化流程。",
+			description: "",
 		},
 
 		experience: {

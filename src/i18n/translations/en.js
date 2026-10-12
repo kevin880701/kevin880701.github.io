@@ -46,8 +46,7 @@ const en = {
 	
 		homepage: {
 			title: "Full-Stack Engineer with experience across Web, Cross-Platform Mobile Apps, Backend, and AI integration.",
-			description:
-				"Skilled in Web, cross-platform mobile apps, and backend architecture development, integrated with AI technologies and CI/CD automated workflow practices.",
+			description: "",
 		},
 	
 		experience: {
