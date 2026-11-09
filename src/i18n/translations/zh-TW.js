@@ -1,5 +1,23 @@
 const zhTW = {
 	info: {
+		awards: [
+			{
+				year: "2026",
+				competition: "聯發科技「智在家鄉」競賽",
+				award: "潛力先鋒獎",
+				project: "母語也會通",
+				link: "/project/taiwan-talk",
+				badge: "TOP PRIZE",
+			},
+			{
+				year: "2022",
+				competition: "聯發科技「智在家鄉」競賽",
+				award: "首獎",
+				project: "Dental Guard 口腔衛教系統",
+				link: "/project/dental-guard",
+				badge: "1ST PRIZE",
+			},
+		],
 		main: {
 			title: "劉浩然 (Hao-Ran Liu) - 個人作品集",
 			name: "劉浩然",
@@ -402,6 +420,10 @@ const zhTW = {
 			media: {
 				images: [
 					{
+						src: "/images/dental-guard-reward.jpg",
+						caption: "榮獲 2022 聯發科「智在家鄉」競賽首獎頒獎現場"
+					},
+					{
 						src: "/images/dental-guard-class-list.png",
 						caption: "班級列表"
 					},
@@ -430,12 +452,7 @@ const zhTW = {
 						caption: "時間範圍挑選"
 					}
 				],
-				videos: [
-					{
-						src: "/videos/dental-guard-demo.mp4",
-						caption: "完整功能展示影片"
-					}
-				]
+				videos: []
 			}
 		},
 		{
@@ -1070,6 +1087,7 @@ const zhTW = {
 		},
 		home: {
 			downloadResume: "下載簡歷",
+			awardsTitle: "競賽得獎成就",
 		},
 		experience: {
 			pageTitle: "經歷",

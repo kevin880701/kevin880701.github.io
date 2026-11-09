@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faFilePdf, faTrophy, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
@@ -14,7 +15,7 @@ import { useI18n } from "../i18n/LanguageContext";
 import "./styles/homepage.css";
 
 const Homepage = () => {
-	const { data, language } = useI18n();
+	const { data, language, localizedPath } = useI18n();
 	const { info: INFO, seo: SEO, labels } = data;
 	const [stayLogo, setStayLogo] = useState(false);
 	const [logoSize, setLogoSize] = useState(80);
@@ -140,6 +141,48 @@ const Homepage = () => {
 								<span className="homepage-resume-text">{labels.home.downloadResume}</span>
 							</a>
 						</div>
+
+						{INFO.awards && INFO.awards.length > 0 && (
+							<div className="homepage-awards-section">
+								<div className="homepage-awards-header">
+									<FontAwesomeIcon icon={faTrophy} className="homepage-awards-header-icon" />
+									<span className="homepage-awards-header-title">
+										{labels.home.awardsTitle || "競賽得獎成就"}
+									</span>
+								</div>
+								<div className="homepage-awards-grid">
+									{INFO.awards.map((award, index) => (
+										<Link
+											key={index}
+											to={localizedPath(award.link)}
+											className="homepage-award-card"
+										>
+											<div className="homepage-award-badge-wrapper">
+												<span className="homepage-award-year">{award.year}</span>
+												<span className="homepage-award-badge">{award.badge}</span>
+											</div>
+											<div className="homepage-award-content">
+												<div className="homepage-award-title-row">
+													<span className="homepage-award-competition">
+														{award.competition}
+													</span>
+													<span className="homepage-award-name">
+														{award.award}
+													</span>
+												</div>
+												<div className="homepage-award-project">
+													<span>{award.project}</span>
+													<FontAwesomeIcon
+														icon={faArrowRight}
+														className="homepage-award-arrow"
+													/>
+												</div>
+											</div>
+										</Link>
+									))}
+								</div>
+							</div>
+						)}
 
 						<div className="homepage-projects">
 							<AllProjects />

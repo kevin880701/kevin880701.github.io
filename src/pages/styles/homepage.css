@@ -194,3 +194,145 @@
 		margin-left: 0;
 	}
 }
+
+/* 獲獎亮點區塊 (Awards Highlight) */
+.homepage-awards-section {
+	margin-top: 55px;
+	margin-bottom: 20px;
+}
+
+.homepage-awards-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 14px;
+	color: #64748b;
+}
+
+.homepage-awards-header-icon {
+	font-size: 14px;
+	color: #d97706;
+}
+
+.homepage-awards-header-title {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: #475569;
+}
+
+.homepage-awards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 16px;
+}
+
+.homepage-award-card {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 14px 18px;
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	text-decoration: none;
+	color: inherit;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+	transition: all 0.2s ease-in-out;
+}
+
+.homepage-award-card:hover {
+	transform: translateY(-2px);
+	border-color: #cbd5e1;
+	box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.08);
+}
+
+.homepage-award-badge-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 54px;
+	padding: 6px 8px;
+	background: #fefce8;
+	border-radius: 8px;
+	border: 1px solid #fef08a;
+}
+
+.homepage-award-year {
+	font-size: 13px;
+	font-weight: 700;
+	color: #854d0e;
+	line-height: 1.1;
+}
+
+.homepage-award-badge {
+	font-size: 8px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: #a16207;
+	margin-top: 2px;
+}
+
+.homepage-award-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+}
+
+.homepage-award-title-row {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.homepage-award-competition {
+	font-size: 12px;
+	font-weight: 500;
+	color: #64748b;
+}
+
+.homepage-award-name {
+	font-size: 13px;
+	font-weight: 700;
+	color: #b45309;
+}
+
+.homepage-award-project {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.homepage-award-arrow {
+	font-size: 12px;
+	color: #94a3b8;
+	transition: transform 0.2s ease, color 0.2s ease;
+	margin-left: 6px;
+}
+
+.homepage-award-card:hover .homepage-award-arrow {
+	transform: translateX(3px);
+	color: #b45309;
+}
+
+@media (max-width: 600px) {
+	.homepage-awards-section {
+		margin-top: 35px;
+	}
+	.homepage-awards-grid {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+	.homepage-award-card {
+		padding: 12px 14px;
+	}
+}

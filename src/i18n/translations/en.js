@@ -1,5 +1,23 @@
 const en = {
 	info: {
+		awards: [
+			{
+				year: "2026",
+				competition: "MediaTek 'Genius for Home'",
+				award: "Potential Pioneer Award",
+				project: "母語也會通 (Taiwanese Learning Platform)",
+				link: "/project/taiwan-talk",
+				badge: "TOP PRIZE",
+			},
+			{
+				year: "2022",
+				competition: "MediaTek 'Genius for Home'",
+				award: "1st Prize (Grand Prize)",
+				project: "Dental Guard",
+				link: "/project/dental-guard",
+				badge: "1ST PRIZE",
+			},
+		],
 		main: {
 			title: "Hao-Ran Liu (Kevin) - Personal Portfolio",
 			name: "Hao-Ran Liu",
@@ -395,6 +413,7 @@ const en = {
 	
 	        media: {
 	            images: [
+	                { src: "/images/dental-guard-reward.jpg", caption: "Award ceremony for the 2022 MediaTek 'Genius for Home' Grand Prize" },
 	                { src: "/images/dental-guard-class-list.png", caption: "Class List" },
 	                { src: "/images/dental-guard-member.png", caption: "Member Management" },
 	                { src: "/images/dental-guard-analyze.png", caption: "Dental Plaque Analysis" },
@@ -403,9 +422,7 @@ const en = {
 	                { src: "/images/dental-guard-chart-3.png", caption: "Trend Chart Selection Changes" },
 	                { src: "/images/dental-guard-date-picker.png", caption: "Date Range Selection" }
 	            ],
-	            videos: [
-	                { src: "/videos/dental-guard-demo.mp4", caption: "Full Feature Demo Video" }
-	            ]
+	            videos: []
 	        }
 	    },
 	    {
@@ -876,6 +893,7 @@ const en = {
 		},
 		home: {
 			downloadResume: "Download Resume",
+			awardsTitle: "Major Honors & Awards",
 		},
 		experience: {
 			pageTitle: "Experience",

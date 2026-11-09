@@ -104,6 +104,10 @@ const PROJECTS = [
         media: {
             images: [
                 {
+                    src: "/images/dental-guard-reward.jpg",
+                    caption: "榮獲 2022 聯發科「智在家鄉」競賽首獎頒獎現場"
+                },
+                {
                     src: "/images/dental-guard-class-list.png",
                     caption: "班級列表"
                 },
@@ -132,12 +136,7 @@ const PROJECTS = [
                     caption: "時間範圍挑選"
                 }
             ],
-            videos: [
-                {
-                    src: "/videos/dental-guard-demo.mp4",
-                    caption: "完整功能展示影片"
-                }
-            ]
+            videos: []
         }
     },
     {
