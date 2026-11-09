@@ -6,14 +6,16 @@ const en = {
 				competition: "MediaTek 'Genius for Home'",
 				award: "Potential Pioneer Award",
 				project: "母語也會通 (Taiwanese Learning Platform)",
+				image: "/images/taiwan-talk-reward.jpg",
 				link: "/project/taiwan-talk",
 				badge: "TOP PRIZE",
 			},
 			{
 				year: "2022",
 				competition: "MediaTek 'Genius for Home'",
-				award: "1st Prize (Grand Prize)",
+				award: "1st Prize",
 				project: "Dental Guard",
+				image: "/images/dental-guard-reward.jpg",
 				link: "/project/dental-guard",
 				badge: "1ST PRIZE",
 			},
@@ -326,7 +328,7 @@ const en = {
 	        descriptions: [
 	            "母語也會通 is a Taiwanese language learning platform centered on cultural preservation, featuring a Duolingo-style gamified stage system that guides users through Taiwanese characters, Tâi-lô romanization, and everyday conversation in a structured way.",
 	            "The platform offers diverse learning modes — read-aloud speaking exercises analyzed by AI voice recognition, Tâi-lô romanization selection drills, character translation questions, and a real-time friend battle mode that harnesses competition to sustain motivation. Any word can be tapped for instant lookup of its characters, romanization, and part-of-speech definition.",
-	            "This project won the Potential Pioneer Award (NT$300,000) at the 2026 MediaTek 'Genius for Home' competition, recognizing its social impact on Taiwanese language digitalization and technical innovation."
+	            "This project won the Potential Pioneer Award at the 2026 MediaTek 'Genius for Home' competition, recognizing its social impact on Taiwanese language digitalization and technical innovation."
 	        ],
 
 	        features: [
@@ -339,17 +341,13 @@ const en = {
 	        ],
 
 	        achievements: [
-	            "Won the Potential Pioneer Award at 2026 MediaTek 'Genius for Home' competition (NT$300,000)",
+	            "Won the Potential Pioneer Award at 2026 MediaTek 'Genius for Home' competition",
 	            "Promoted Taiwanese cultural heritage through gamified design",
 	            "Integrated voice recognition and Tâi-lô system for immersive learning"
 	        ],
 
 	        media: {
 	            images: [
-	                {
-	                    src: "/images/taiwan-talk-reward.jpg",
-	                    caption: "Award ceremony for the 2026 MediaTek 'Genius for Home' Potential Pioneer Award"
-	                },
 	                {
 	                    src: "/images/taiwan-talk-home.png",
 	                    caption: "Learning map home screen showing progress via stage paths"
@@ -377,6 +375,10 @@ const en = {
 	                {
 	                    src: "/images/taiwan-talk-profile.png",
 	                    caption: "Profile page showing win streaks, learning XP, and achievements"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-reward.jpg",
+	                    caption: "Award ceremony for the 2026 MediaTek 'Genius for Home' Potential Pioneer Award"
 	                }
 	            ],
 	            videos: []
@@ -413,14 +415,14 @@ const en = {
 	
 	        media: {
 	            images: [
-	                { src: "/images/dental-guard-reward.jpg", caption: "Award ceremony for the 2022 MediaTek 'Genius for Home' Grand Prize" },
 	                { src: "/images/dental-guard-class-list.png", caption: "Class List" },
 	                { src: "/images/dental-guard-member.png", caption: "Member Management" },
 	                { src: "/images/dental-guard-analyze.png", caption: "Dental Plaque Analysis" },
 	                { src: "/images/dental-guard-chart-1.png", caption: "Dynamic Chart Display" },
 	                { src: "/images/dental-guard-chart-2.png", caption: "Bar Chart Selection Changes" },
 	                { src: "/images/dental-guard-chart-3.png", caption: "Trend Chart Selection Changes" },
-	                { src: "/images/dental-guard-date-picker.png", caption: "Date Range Selection" }
+	                { src: "/images/dental-guard-date-picker.png", caption: "Date Range Selection" },
+	                { src: "/images/dental-guard-reward.jpg", caption: "Award ceremony for the 2022 MediaTek 'Genius for Home' Grand Prize" }
 	            ],
 	            videos: []
 	        }

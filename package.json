@@ -25,7 +25,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -t",
-    "start": "react-scripts start",
+    "start": "node scripts/generate-pdf.mjs && react-scripts start",
     "build": "node scripts/generate-pdf.mjs && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

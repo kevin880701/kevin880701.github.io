@@ -20,6 +20,7 @@ let mySkills;
 let PROJECTS;
 let PUBLICATIONS;
 let LABELS;
+let currentLanguage;
 
 // Calculate age dynamically from birthday in user.js
 function calculateAge(birthdayString) {
@@ -305,6 +306,72 @@ function drawEducation() {
 
 		doc.y = bulletY + 10;
 	});
+}
+
+// 4.5 Awards (獲獎紀錄)
+function drawAwards() {
+	if (!INFO.awards || INFO.awards.length === 0) return;
+
+	checkPageSpace(doc, 140);
+	drawSectionTitle(LABELS.awards);
+
+	const leftX = 40;
+	const imgWidth = 100;
+	const imgHeight = 62;
+	const rightX = 152;
+	const rightWidth = 403.28;
+
+	INFO.awards.forEach((item) => {
+		checkPageSpace(doc, 75);
+		const startY = doc.y;
+
+		// 1. 照片展示 (帶質感邊框與圓角裁切)
+		const imgPath = item.image ? path.join(publicDir, item.image) : null;
+		doc.save();
+		doc.roundedRect(leftX, startY, imgWidth, imgHeight, 4).strokeColor(COLOR_LINE).lineWidth(0.5).stroke();
+		if (imgPath && fs.existsSync(imgPath)) {
+			doc.save();
+			doc.roundedRect(leftX + 0.5, startY + 0.5, imgWidth - 1, imgHeight - 1, 3.5).clip();
+			doc.image(imgPath, leftX + 0.5, startY + 0.5, {
+				fit: [imgWidth - 1, imgHeight - 1],
+				align: 'center',
+				valign: 'center',
+			});
+			doc.restore();
+		}
+		doc.restore();
+
+		// 2. 右側資訊
+		// 標題行：年份 + 競賽名稱 + 獎項名稱（一致字體與顏色，不加底色不換色）
+		doc.font('Heiti-Bold').fontSize(10);
+		doc.fillColor(COLOR_PRIMARY);
+		doc.text(`${item.year} ${item.competition}  ${item.award}`, rightX, startY + 2, { width: rightWidth });
+
+		// 獲獎專案 (加入可點擊超連結導向專案詳細頁)
+		doc.y = startY + 18;
+		const projectPrefix = LABELS.projects === 'Project Achievements' ? 'Winning Project: ' : '獲獎專案：';
+		doc.font('Heiti-Bold').fontSize(9).fillColor(COLOR_PRIMARY);
+		doc.text(projectPrefix, rightX, doc.y, { continued: true });
+
+		const langPrefix = currentLanguage === 'en' ? 'en' : 'zh-TW';
+		const awardUrl = item.link ? `https://kevin880701.github.io/${langPrefix}${item.link.startsWith('/') ? '' : '/'}${item.link}` : '';
+		doc.fillColor(COLOR_ACCENT).text(item.project, { link: awardUrl, underline: true });
+
+		// 輔助說明
+		doc.y = startY + 32;
+		doc.font('Heiti').fontSize(8.5).fillColor(COLOR_SECONDARY);
+		const descText = item.year === '2026'
+			? '榮獲聯發科技教育基金會「智在家鄉」潛力先鋒獎，表彰運用 AI 語音辨識與遊戲化設計對本土語言數位傳承之貢獻。'
+			: '榮獲全台最大社會創新競賽聯發科技「智在家鄉」全國首獎，表彰運用 AI 口腔影像辨識改善偏鄉醫療衛教之重大影響力。';
+		const descEn = item.year === '2026'
+			? 'Awarded by MediaTek Foundation for innovative use of AI speech recognition and gamification in indigenous language digitalization.'
+			: 'Won 1st Prize in Taiwan’s premier social tech competition for utilizing AI oral plaque detection to enhance healthcare accessibility.';
+		doc.text(LABELS.projects === 'Project Achievements' ? descEn : descText, rightX, doc.y, { width: rightWidth, lineGap: 1.5 });
+
+		doc.y = startY + imgHeight + 14;
+	});
+
+	doc.y += 2;
 }
 
 // 4. Experience Section
@@ -609,11 +676,9 @@ function drawProjects() {
 		}
 
 		// 2. Draw Right Column (Text details)
-		// Title with Link
-		let url = proj.link;
-		if (!url || url.trim() === "") {
-			url = `https://kevin880701.github.io/project/${proj.slug}`;
-		}
+		// Title with Link (優先導向至個人網站對應語言之專案內頁)
+		const langPrefix = currentLanguage === 'en' ? 'en' : 'zh-TW';
+		let url = proj.slug ? `https://kevin880701.github.io/${langPrefix}/project/${proj.slug}` : proj.link;
 
 		doc.fillColor(COLOR_ACCENT).font('Heiti-Bold').fontSize(11);
 		doc.text(proj.title, rightX, startY, { link: url, underline: true });
@@ -775,10 +840,12 @@ function getPdfLabels(language, data) {
 		projects: isEnglish ? 'Project Achievements' : '專案成就',
 		certifications: isEnglish ? 'Certifications' : '證照',
 		biography: isEnglish ? 'Profile' : '個人簡介',
+		awards: isEnglish ? 'Honors & Awards' : '獲獎紀錄',
 	};
 }
 
 async function generateResume(language, data, filename) {
+	currentLanguage = language;
 	INFO = data.info;
 	ABOUT = data.about;
 	myEducation = data.education;
@@ -794,6 +861,7 @@ async function generateResume(language, data, filename) {
 	drawMainHeader();
 	drawBiography();
 	drawSpecialties();
+	drawAwards();
 	drawExperience();
 	drawProjects();
 	drawEducation();

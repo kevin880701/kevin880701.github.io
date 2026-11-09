@@ -32,10 +32,6 @@ const PROJECTS = [
         media: {
             images: [
                 {
-                    src: "/images/taiwan-talk-reward.jpg",
-                    caption: "榮獲 2026 聯發科「智在家鄉」競賽潛力先鋒獎頒獎現場"
-                },
-                {
                     src: "/images/taiwan-talk-home.png",
                     caption: "學習地圖主頁，以關卡路徑呈現學習進度"
                 },
@@ -62,6 +58,10 @@ const PROJECTS = [
                 {
                     src: "/images/taiwan-talk-profile.png",
                     caption: "個人頁面，顯示連勝、學習經驗與成就數據"
+                },
+                {
+                    src: "/images/taiwan-talk-reward.jpg",
+                    caption: "榮獲 2026 聯發科「智在家鄉」競賽潛力先鋒獎頒獎現場"
                 }
             ],
             videos: []
@@ -104,10 +104,6 @@ const PROJECTS = [
         media: {
             images: [
                 {
-                    src: "/images/dental-guard-reward.jpg",
-                    caption: "榮獲 2022 聯發科「智在家鄉」競賽首獎頒獎現場"
-                },
-                {
                     src: "/images/dental-guard-class-list.png",
                     caption: "班級列表"
                 },
@@ -134,6 +130,10 @@ const PROJECTS = [
                 {
                     src: "/images/dental-guard-date-picker.png",
                     caption: "時間範圍挑選"
+                },
+                {
+                    src: "/images/dental-guard-reward.jpg",
+                    caption: "榮獲 2022 聯發科「智在家鄉」競賽首獎頒獎現場"
                 }
             ],
             videos: []
@@ -567,7 +567,7 @@ const PROJECTS = [
         }
     },
     {
-        title: "Lioneers AST 球隊服務 App",
+        title: "新竹攻城獅Lioneers",
         slug: "lioneers-ast",
         showResume: true,
         description: "為新竹攻城獅球迷打造的一站式行動服務入口，整合會員、活動、門票與球隊相關資訊。",
@@ -576,7 +576,7 @@ const PROJECTS = [
         link: "",
 
         descriptions: [
-            "Lioneers AST 球隊服務 App 是為新竹攻城獅球迷打造的一站式行動服務入口，整合會員登入、活動頁面、門票與球隊相關資訊，讓球迷可以隨時掌握最新動態。系統透過後端 API 串接既有平台，將原本分散在不同網頁或系統的功能集中到單一 App 中。",
+            "本專案是為新竹攻城獅球迷打造的一站式行動服務入口，整合會員登入、活動頁面、門票與球隊相關資訊，讓球迷可以隨時掌握最新動態。系統透過後端 API 串接既有平台，將原本分散在不同網頁或系統的功能集中到單一 App 中。",
             "在技術架構上，專案以 Flutter 建置跨平台 App，搭配 Riverpod 做狀態管理、AutoRoute 建立分層式路由與 Deep Link 處理流程，並整合 Firebase Cloud Messaging 推播服務與本地通知，確保重要公告（如賽事資訊、活動通知）能第一時間觸達使用者。",
             "App 啟動時會依環境設定初始化 API 網域、建立網路層與共用儲存（Shared Preferences），並透過 Deep Link、App Links 與 Router 的整合，支援從外部連結直接導向 App 內特定頁面。整體專案同時導入響應式 UI 設計與螢幕適配，確保在不同裝置尺寸上都有良好的使用體驗。"
         ],
