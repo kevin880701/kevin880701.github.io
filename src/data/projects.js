@@ -1,5 +1,73 @@
 const PROJECTS = [
     {
+        title: "母語也會通",
+        slug: "taiwan-talk",
+        showResume: true,
+        description: "榮獲 2026 聯發科「智在家鄉」潛力先鋒獎。以遊戲化學習路徑推動台語文化傳承，整合發音練習、臺羅拼音訓練與好友對戰等功能。",
+        logo: "/images/taiwan-talk-logo.png",
+        linkText: "查看專案",
+        link: "",
+
+        descriptions: [
+            "母語也會通是一套以台語文化傳承為核心理念的語言學習系統，採用遊戲化的關卡設計，讓使用者能夠系統化地學習台語漢字、臺羅拼音與日常會話。",
+            "系統整合多元學習模式，包含跟著朗讀的口說練習、臺羅拼音選字題、漢字翻譯題，以及好友即時對戰模式，透過競技元素提升學習動力。點擊單字可即時查看漢字、羅馬拼音與詞性解釋，降低學習門檻。",
+            "此專案榮獲 2026 年聯發科技「智在家鄉」競賽潛力先鋒獎，肯定了台語數位化學習的社會影響力與技術創新。"
+        ],
+
+        features: [
+            "遊戲化學習路徑設計",
+            "台語發音口說練習，透過訓練 AI 語音辨識進行分析",
+            "臺羅拼音互動訓練",
+            "好友即時對戰模式",
+            "單字詳解（漢字 / 羅馬拼音 / 詞性）",
+            "每日任務與連勝獎勵機制"
+        ],
+
+        achievements: [
+            "榮獲 2026 聯發科「智在家鄉」競賽潛力先鋒獎",
+            "以遊戲化設計推動台語文化數位傳承",
+            "整合語音辨識與臺羅拼音系統實現沉浸式學習體驗"
+        ],
+
+        media: {
+            images: [
+                {
+                    src: "/images/taiwan-talk-reward.jpg",
+                    caption: "榮獲 2026 聯發科「智在家鄉」競賽潛力先鋒獎頒獎現場"
+                },
+                {
+                    src: "/images/taiwan-talk-home.png",
+                    caption: "學習地圖主頁，以關卡路徑呈現學習進度"
+                },
+                {
+                    src: "/images/taiwan-talk-pronounce.png",
+                    caption: "臺羅拼音練習頁面，依唇音、舌音等分類學習"
+                },
+                {
+                    src: "/images/taiwan-talk-game.png",
+                    caption: "口說練習，跟著朗讀台語句子並即時評分"
+                },
+                {
+                    src: "/images/taiwan-talk-game-word.png",
+                    caption: "臺羅拼音選字題，排列正確的拼音順序"
+                },
+                {
+                    src: "/images/taiwan-talk-game-prompt.png",
+                    caption: "單字即時查詢，顯示漢字、羅馬拼音與詞性解釋"
+                },
+                {
+                    src: "/images/taiwan-talk-friend-battle.png",
+                    caption: "好友對戰模式，即時競技提升學習動力"
+                },
+                {
+                    src: "/images/taiwan-talk-profile.png",
+                    caption: "個人頁面，顯示連勝、學習經驗與成就數據"
+                }
+            ],
+            videos: []
+        }
+    },
+    {
         // 基本資訊
         title: "Dental Guard 口腔衛教系統",
         slug: "dental-guard",

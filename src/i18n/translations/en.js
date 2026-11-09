@@ -297,6 +297,74 @@ const en = {
 	],
 	projects: [
 	    {
+	        title: "母語也會通 (Mó-gí Iā-ē-thong)",
+	        slug: "taiwan-talk",
+	        showResume: true,
+	        description: "Won the Potential Pioneer Award at MediaTek's 'Genius for Home' 2026. A gamified Taiwanese language learning platform featuring pronunciation practice with AI voice recognition, Tâi-lô romanization training, and real-time friend battle mode.",
+	        logo: "/images/taiwan-talk-logo.png",
+	        linkText: "View Project",
+	        link: "",
+
+	        descriptions: [
+	            "母語也會通 is a Taiwanese language learning platform centered on cultural preservation, featuring a Duolingo-style gamified stage system that guides users through Taiwanese characters, Tâi-lô romanization, and everyday conversation in a structured way.",
+	            "The platform offers diverse learning modes — read-aloud speaking exercises analyzed by AI voice recognition, Tâi-lô romanization selection drills, character translation questions, and a real-time friend battle mode that harnesses competition to sustain motivation. Any word can be tapped for instant lookup of its characters, romanization, and part-of-speech definition.",
+	            "This project won the Potential Pioneer Award (NT$300,000) at the 2026 MediaTek 'Genius for Home' competition, recognizing its social impact on Taiwanese language digitalization and technical innovation."
+	        ],
+
+	        features: [
+	            "Gamified learning path design",
+	            "Taiwanese pronunciation speaking practice with AI-trained voice recognition analysis",
+	            "Interactive Tâi-lô romanization training",
+	            "Real-time friend battle mode",
+	            "Word details (Chinese characters / romanization / part of speech)",
+	            "Daily missions and win-streak reward system"
+	        ],
+
+	        achievements: [
+	            "Won the Potential Pioneer Award at 2026 MediaTek 'Genius for Home' competition (NT$300,000)",
+	            "Promoted Taiwanese cultural heritage through gamified design",
+	            "Integrated voice recognition and Tâi-lô system for immersive learning"
+	        ],
+
+	        media: {
+	            images: [
+	                {
+	                    src: "/images/taiwan-talk-reward.jpg",
+	                    caption: "Award ceremony for the 2026 MediaTek 'Genius for Home' Potential Pioneer Award"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-home.png",
+	                    caption: "Learning map home screen showing progress via stage paths"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-pronounce.png",
+	                    caption: "Tâi-lô romanization practice, categorized by labial, lingual sounds, etc."
+	                },
+	                {
+	                    src: "/images/taiwan-talk-game.png",
+	                    caption: "Speaking practice — read Taiwanese sentences aloud and get instant feedback"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-game-word.png",
+	                    caption: "Tâi-lô word selection exercise — arrange syllables in the correct order"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-game-prompt.png",
+	                    caption: "Instant word lookup — shows characters, romanization, and part of speech"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-friend-battle.png",
+	                    caption: "Friend battle mode — real-time competition to boost motivation"
+	                },
+	                {
+	                    src: "/images/taiwan-talk-profile.png",
+	                    caption: "Profile page showing win streaks, learning XP, and achievements"
+	                }
+	            ],
+	            videos: []
+	        }
+	    },
+	    {
 	        title: "Dental Guard",
 	        slug: "dental-guard",
 	        showResume: true,

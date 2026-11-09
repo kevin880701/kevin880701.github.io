@@ -39,12 +39,17 @@ const myEducation = [
                     { type: "link", content: "聯發科技「智在家鄉」競賽", url: "https://corp.mediatek.tw/corporate-social-responsibility/corporate-social-responsibility-news/two-winners-announced-for-genius-for-home" },
                     { type: "text", content: "首獎。" }
                 ]
+            },
+            {
+                parts: [
+                    { type: "text", content: "於 2026 年以開發之「Taiwan Talk 台語學習 App」榮獲聯發科技「智在家鄉」競賽潛力先鋒獎。" }
+                ]
             }
         ],
         resumeDescription: [
             {
                 parts: [
-                    { type: "text", content: "於 2022 年以開發「口腔衛教系統」榮獲聯發科技「智在家鄉」競賽首獎。" }
+                    { type: "text", content: "於 2022 年以開發「口腔衛教系統」榮獲聯發科技「智在家鄉」競賽首獎；2026 年再以「Taiwan Talk 台語學習 App」榮獲潛力先鋒獎。" }
                 ]
             },
             {
