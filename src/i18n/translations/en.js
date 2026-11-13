@@ -5,7 +5,7 @@ const en = {
 				year: "2026",
 				competition: "MediaTek 'Genius for Home'",
 				award: "Potential Pioneer Award",
-				project: "母語也會通 (Taiwanese Learning Platform)",
+				project: "Taiwan Talk",
 				image: "/images/taiwan-talk-reward.jpg",
 				link: "/project/taiwan-talk",
 				badge: "TOP PRIZE",
@@ -180,7 +180,7 @@ const en = {
 	        logo: "/images/experience/ast-logo.png",
 	        description: [
 	            {
-	                text: "Served as a full-stack engineer, responsible for maintaining and developing mobile (Flutter), frontend (React), and backend (Go) systems."
+	                text: "Served as a full-stack engineer, responsible for maintaining and developing cross-platform mobile, Web, and backend systems."
 	            },
 	            {
 	                text: "Developed the LINE LIFF course registration system, replacing manual inquiry and registration processes."
@@ -218,7 +218,7 @@ const en = {
 	        logo: "/images/experience/cwo-logo.jpg",
 	        description: [
 	            {
-	                text: "Served as the primary developer of the APP team, delivering over 5 Kotlin/Java and Flutter applications."
+	                text: "Served as the primary developer of the APP team, delivering over 5 cross-platform applications across mobile phones, TVs, and in-vehicle systems."
 	            },
 	            {
 	                text: "Led the development of IoT smart device Apps, handling complex BLE / BluFi Bluetooth communication protocols, optimizing the disconnection reconnection mechanism, and increasing the hardware connection success rate to over 90%."
@@ -317,7 +317,7 @@ const en = {
 	],
 	projects: [
 	    {
-	        title: "母語也會通 (Mó-gí Iā-ē-thong)",
+	        title: "Taiwan Talk",
 	        slug: "taiwan-talk",
 	        showResume: true,
 	        description: "Won the Potential Pioneer Award at MediaTek's 'Genius for Home' 2026. A gamified Taiwanese language learning platform featuring pronunciation practice with AI voice recognition, Tâi-lô romanization training, and real-time friend battle mode.",
@@ -326,7 +326,7 @@ const en = {
 	        link: "",
 
 	        descriptions: [
-	            "母語也會通 is a Taiwanese language learning platform centered on cultural preservation, featuring a Duolingo-style gamified stage system that guides users through Taiwanese characters, Tâi-lô romanization, and everyday conversation in a structured way.",
+	            "Taiwan Talk (母語也會通) is a Taiwanese language learning platform centered on cultural preservation, featuring a Duolingo-style gamified stage system that guides users through Taiwanese characters, Tâi-lô romanization, and everyday conversation in a structured way.",
 	            "The platform offers diverse learning modes — read-aloud speaking exercises analyzed by AI voice recognition, Tâi-lô romanization selection drills, character translation questions, and a real-time friend battle mode that harnesses competition to sustain motivation. Any word can be tapped for instant lookup of its characters, romanization, and part-of-speech definition.",
 	            "This project won the Potential Pioneer Award at the 2026 MediaTek 'Genius for Home' competition, recognizing its social impact on Taiwanese language digitalization and technical innovation."
 	        ],
@@ -380,6 +380,48 @@ const en = {
 	                    src: "/images/taiwan-talk-reward.jpg",
 	                    caption: "Award ceremony for the 2026 MediaTek 'Genius for Home' Potential Pioneer Award"
 	                }
+	            ],
+	            videos: []
+	        }
+	    },
+	    {
+	        title: "Lioneers AST Team Service App",
+	        slug: "lioneers-ast",
+	        showResume: true,
+	        description: "A one-stop mobile service portal for Hsinchu Lioneers fans, integrating memberships, events, tickets, and team-related info.",
+	        logo: "/images/lioneers-logo.png",
+	        linkText: "View Project",
+	        link: "",
+	
+	        descriptions: [
+	            "Lioneers AST Team Service App is a one-stop mobile service portal designed for Hsinchu Lioneers fans, integrating member login, event pages, tickets, and team-related info, so fans can stay updated anytime. The system connects to existing platforms via backend APIs, centralizing functions originally scattered across different web pages or systems into a single App.",
+	            "Technically, the project uses Flutter to build a cross-platform App, combined with Riverpod for state management, AutoRoute for a layered routing and Deep Link processing flow, and integrates Firebase Cloud Messaging and local notifications to ensure important announcements (like match info and event notices) reach users immediately.",
+	            "Upon startup, the App initializes API domains, establishes the network layer, and shared storage (Shared Preferences) based on environment settings. Through the integration of Deep Links, App Links, and the Router, it supports direct navigation to specific pages in the App from external links. The overall project also introduces responsive UI design and screen adaptation to ensure a good user experience across different device sizes."
+	        ],
+	
+	        features: [
+	            "Flutter Cross-Platform Development (iOS / Android)",
+	            "Riverpod / Hooks Architecture for State Management and Component Design",
+	            "AutoRoute Routing System and Deep Link Navigation Flow",
+	            "Firebase Cloud Messaging and Local Notification Integration",
+	            "Shared Preferences for User Settings and Login State Retention",
+	            "Responsive Layout and Multi-Device Screen Adaptation (ScreenUtil)"
+	        ],
+	
+	        achievements: [
+	            "Established a unified mobile service portal for the team and fans",
+	            "Integrated push notifications and Deep Links to boost event and match promotion",
+	            "Built a sustainable and extensible modular Flutter project architecture"
+	        ],
+	
+	        media: {
+	            images: [
+	                { src: "/images/lioneers-home.jpg", caption: "Lioneers AST Home, integrating team info and main function portals" },
+	                { src: "/images/lioneers-buy-ticket.jpg", caption: "Ticket purchasing page, offering match sessions and seat selection" },
+	                { src: "/images/lioneers-my-ticket.jpg", caption: "My Tickets page, centrally managing purchased match tickets" },
+	                { src: "/images/lioneers-activity.jpg", caption: "Event list page, showing team-related marketing and fan events" },
+	                { src: "/images/lioneers-notification.jpg", caption: "Notification center, integrating pushes and system announcements" },
+	                { src: "/images/lioneers-account.jpg", caption: "Member center page, displaying personal info and membership tier details" }
 	            ],
 	            videos: []
 	        }
@@ -711,48 +753,6 @@ const en = {
 	            ],
 	            videos: []
 	        }
-	    },
-	    {
-	        title: "Lioneers AST Team Service App",
-	        slug: "lioneers-ast",
-	        showResume: true,
-	        description: "A one-stop mobile service portal for Hsinchu Lioneers fans, integrating memberships, events, tickets, and team-related info.",
-	        logo: "/images/lioneers-logo.png",
-	        linkText: "View Project",
-	        link: "",
-	
-	        descriptions: [
-	            "Lioneers AST Team Service App is a one-stop mobile service portal designed for Hsinchu Lioneers fans, integrating member login, event pages, tickets, and team-related info, so fans can stay updated anytime. The system connects to existing platforms via backend APIs, centralizing functions originally scattered across different web pages or systems into a single App.",
-	            "Technically, the project uses Flutter to build a cross-platform App, combined with Riverpod for state management, AutoRoute for a layered routing and Deep Link processing flow, and integrates Firebase Cloud Messaging and local notifications to ensure important announcements (like match info and event notices) reach users immediately.",
-	            "Upon startup, the App initializes API domains, establishes the network layer, and shared storage (Shared Preferences) based on environment settings. Through the integration of Deep Links, App Links, and the Router, it supports direct navigation to specific pages in the App from external links. The overall project also introduces responsive UI design and screen adaptation to ensure a good user experience across different device sizes."
-	        ],
-	
-	        features: [
-	            "Flutter Cross-Platform Development (iOS / Android)",
-	            "Riverpod / Hooks Architecture for State Management and Component Design",
-	            "AutoRoute Routing System and Deep Link Navigation Flow",
-	            "Firebase Cloud Messaging and Local Notification Integration",
-	            "Shared Preferences for User Settings and Login State Retention",
-	            "Responsive Layout and Multi-Device Screen Adaptation (ScreenUtil)"
-	        ],
-	
-	        achievements: [
-	            "Established a unified mobile service portal for the team and fans",
-	            "Integrated push notifications and Deep Links to boost event and match promotion",
-	            "Built a sustainable and extensible modular Flutter project architecture"
-	        ],
-	
-	        media: {
-	            images: [
-	                { src: "/images/lioneers-home.jpg", caption: "Lioneers AST Home, integrating team info and main function portals" },
-	                { src: "/images/lioneers-buy-ticket.jpg", caption: "Ticket purchasing page, offering match sessions and seat selection" },
-	                { src: "/images/lioneers-my-ticket.jpg", caption: "My Tickets page, centrally managing purchased match tickets" },
-	                { src: "/images/lioneers-activity.jpg", caption: "Event list page, showing team-related marketing and fan events" },
-	                { src: "/images/lioneers-notification.jpg", caption: "Notification center, integrating pushes and system announcements" },
-	                { src: "/images/lioneers-account.jpg", caption: "Member center page, displaying personal info and membership tier details" }
-	            ],
-	            videos: []
-	        }
 	    }
 	],
 	resume: {},
@@ -832,7 +832,7 @@ const en = {
 	        category: "Web Development",
 	        icon: "/icons/web_icon.png",
 	        showResume: true,
-	        description: "Developing web interfaces using React, and LINE LIFF development.",
+	        description: "Responsible for Web development across LINE LIFF, official websites, and admin dashboard systems.",
 	        skills: [
 	            { name: "React", icon: "/icons/react_icon.png" },
 	            { name: "LINE LIFF", icon: "/icons/line_icon.png" }

@@ -164,7 +164,7 @@ function drawMainHeader() {
 		lineGap: 1,
 	});
 
-	doc.font('Heiti').fontSize(10);
+	doc.font('Heiti-Bold').fontSize(10);
 	const eduHeight = doc.heightOfString(eduText, {
 		width: textWidth,
 		lineGap: 1,
@@ -190,7 +190,7 @@ function drawMainHeader() {
 	currentTextY += titleHeight + textGap;
 
 	// Subtitle: School & Degree
-	doc.font('Heiti').fontSize(10).fillColor(COLOR_SECONDARY);
+	doc.font('Heiti-Bold').fontSize(10).fillColor(COLOR_PRIMARY);
 	doc.text(eduText, textStartX, currentTextY, {
 		width: textWidth,
 		lineGap: 1,
@@ -198,7 +198,7 @@ function drawMainHeader() {
 	currentTextY += eduHeight + textGap;
 
 	// Subtitle: Core Info Tagline
-	doc.font('Heiti').fontSize(8.5).fillColor(COLOR_MUTED);
+	doc.font('Heiti').fontSize(8.5).fillColor(COLOR_SECONDARY);
 	doc.text(infoText, textStartX, currentTextY, {
 		width: textWidth,
 		lineGap: 1,
@@ -209,8 +209,7 @@ function drawMainHeader() {
 
 // 3. Education Section
 function drawEducation() {
-	doc.addPage();
-	drawHeaderOnNewPage(doc);
+	checkPageSpace(doc, 80);
 	drawSectionTitle(LABELS.education);
 
 	myEducation.forEach((edu) => {
@@ -486,25 +485,56 @@ function drawSpecialties() {
 	const specialties = mySkills.filter(cat => cat.showResume && cat.description && cat.description.trim() !== "");
 	if (specialties.length === 0) return;
 
-	checkPageSpace(doc, 150);
+	checkPageSpace(doc, 60);
 	drawSectionTitle(LABELS.specialties);
 
 	specialties.forEach((spec) => {
-		const specHeight = doc.heightOfString(spec.description, { width: 487, lineGap: 2.5 }) + 30;
-		checkPageSpace(doc, specHeight);
+		const descHeight = doc.heightOfString(spec.description, { width: 487, lineGap: 2.5 });
+		
+		// 預先估算 tags 需要幾行高度，確保整個專長項目（標題+描述+標籤）不可分割
+		const pillHeight = 15;
+		const pillGapX = 6;
+		const pillGapY = 5;
+		const iconSize = 9;
+		const startX = 50;
+
+		let tagRows = 1;
+		if (spec.skills && spec.skills.length > 0) {
+			let curX = startX;
+			spec.skills.forEach((skill) => {
+				const textWidth = doc.font('Heiti').fontSize(7.5).widthOfString(skill.name);
+				let hasIcon = false;
+				const iconPath = skill.icon ? path.join(publicDir, skill.icon) : null;
+				if (iconPath && fs.existsSync(iconPath) && !iconPath.endsWith('.svg')) {
+					hasIcon = true;
+				}
+				const pillWidth = 6 + (hasIcon ? iconSize + 4 : 0) + textWidth + 6;
+				if (curX + pillWidth > 537) {
+					curX = startX;
+					tagRows++;
+				}
+				curX += pillWidth + pillGapX;
+			});
+		}
+
+		const totalTagsHeight = spec.skills && spec.skills.length > 0 ? (tagRows * (pillHeight + pillGapY) + 8) : 0;
+		const totalSpecHeight = 20 + descHeight + totalTagsHeight + 16;
+
+		// 整個分類整體檢查換頁，杜絕半途腰斬
+		checkPageSpace(doc, totalSpecHeight);
 
 		doc.fillColor(COLOR_PRIMARY).font('Heiti-Bold').fontSize(10);
 		doc.text(spec.category, 50, doc.y);
 
 		// Draw the accent line under the category name
 		const textWidth = doc.widthOfString(spec.category);
-		const lineY = doc.y + 2; // slightly below the text baseline
+		const lineY = doc.y + 2;
 		doc.save();
 		doc.strokeColor('#39c8d0').lineWidth(1.2);
 		doc.moveTo(50, lineY).lineTo(50 + textWidth, lineY).stroke();
 		doc.restore();
 
-		doc.y = lineY + 6; // adjust spacing below the line before description
+		doc.y = lineY + 6;
 
 		doc.fillColor(COLOR_SECONDARY).font('Heiti').fontSize(9);
 		doc.text(spec.description, 50, doc.y, { width: 487, lineGap: 2.5 });
@@ -512,23 +542,12 @@ function drawSpecialties() {
 		// Draw skills as pill tags under the description
 		if (spec.skills && spec.skills.length > 0) {
 			doc.y += 8;
-			const startX = 50;
-			const pillHeight = 15;
-			const pillGapX = 6;
-			const pillGapY = 5;
-			const iconSize = 9;
-
 			let currentX = startX;
 			let currentY = doc.y;
 
-			// Check space for the tags
-			checkPageSpace(doc, 25);
-
 			spec.skills.forEach((skill) => {
-				// Calculate text width
 				const textWidth = doc.font('Heiti').fontSize(7.5).widthOfString(skill.name);
 
-				// Determine if icon exists
 				let hasIcon = false;
 				const iconPath = skill.icon ? path.join(publicDir, skill.icon) : null;
 				if (iconPath && fs.existsSync(iconPath) && !iconPath.endsWith('.svg')) {
@@ -537,27 +556,21 @@ function drawSpecialties() {
 
 				const pillWidth = 6 + (hasIcon ? iconSize + 4 : 0) + textWidth + 6;
 
-				// Wrap to next line if it exceeds right margin
-				if (currentX + pillWidth > 537) { // 50 + 487 = 537 is the right boundary
+				if (currentX + pillWidth > 537) {
 					currentX = startX;
 					currentY += pillHeight + pillGapY;
-					// Check space again
-					checkPageSpace(doc, pillHeight + pillGapY);
 				}
 
-				// Draw pill background
 				doc.save();
-				doc.fillColor('#f3f4f6') // light gray background
+				doc.fillColor('#f3f4f6')
 					.roundedRect(currentX, currentY, pillWidth, pillHeight, 3)
 					.fill();
 
-				// Draw icon if supported
 				if (hasIcon) {
 					doc.image(iconPath, currentX + 6, currentY + (pillHeight - iconSize) / 2, { width: iconSize, height: iconSize });
 				}
 
-				// Draw text
-				doc.fillColor('#4b5563') // gray-600
+				doc.fillColor('#4b5563')
 					.font('Heiti')
 					.fontSize(7.5)
 					.text(skill.name, currentX + 6 + (hasIcon ? iconSize + 4 : 0), currentY + 3.5, { lineBreak: false });
@@ -580,8 +593,7 @@ function drawProjects() {
 	const resumeProjects = PROJECTS.filter(p => p.showResume);
 	if (resumeProjects.length === 0) return;
 
-	doc.addPage();
-	drawHeaderOnNewPage(doc);
+	checkPageSpace(doc, 100);
 	drawSectionTitle(LABELS.projects);
 
 	resumeProjects.forEach((proj) => {
@@ -860,12 +872,12 @@ async function generateResume(language, data, filename) {
 
 	drawMainHeader();
 	drawBiography();
-	drawSpecialties();
 	drawAwards();
 	drawExperience();
 	drawProjects();
 	drawEducation();
 	drawPublications();
+	drawSpecialties();
 	drawCertifications();
 
 	doc.end();

@@ -17,7 +17,7 @@ const mySkills = [
         category: "行動裝置開發",
         icon: "/icons/mobile_icon.png",
         showResume: true,
-        description: "跨平台移動應用程式應用開發。專精 Flutter、Android 原生(Kotlin/Java)，具備從 0 到 1 上架產品的實戰能力。",
+        description: "能依產品需求靈活選擇技術方案，熟悉雙平台生態規範、硬體周邊與第三方服務串接，具備將產品穩定推向市場的完整經驗。",
         skills: [
             { name: "Ios（Flutter）", icon: "/icons/ios_icon.png" },
             { name: "Android（Kotlin / Java / Flutter）", icon: "/icons/android_icon.png" },
@@ -42,7 +42,7 @@ const mySkills = [
         category: "Web程式開發",
         icon: "/icons/web_icon.png",
         showResume: true,
-        description: "使用React開發web介面、Line Liff開發。",
+        description: "負責 Web 開發，能用於 LINE LIFF、官網與管理後台系統。",
         skills: [
             { name: "React", icon: "/icons/react_icon.png" },
             { name: "Line LIFF", icon: "/icons/line_icon.png" }

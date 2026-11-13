@@ -6,7 +6,7 @@ const myExperience = [
         logo: "/images/experience/ast-logo.png",
         description: [
             {
-                text: "擔任全端工程師，負責維護和開發行動端（Flutter）、前端（React）與後端（Go）的系統。"
+                text: "擔任全端工程師，負責維護和開發雙平台行動端、Web與後端系統。"
             },
             {
                 text: "開發 LINE LIFF 課程報名系統，取代人工詢問與登記流程。"
@@ -44,7 +44,7 @@ const myExperience = [
         logo: "/images/experience/cwo-logo.jpg",
         description: [
             {
-                text: "擔任 APP 團隊主要開發者，交付超過 5 款 Kotlin/Java 及 Flutter 應用。"
+                text: "擔任 APP 團隊主要開發者，交付超過 5 款 雙平台應用程式，設備包含手機、TV以及車用載具。"
             },
             {
                 text: "主導 IoT 智慧裝置 App 開發，處理複雜的 BLE / BluFi 藍牙通訊協定，優化斷線重連機制，使硬體串接成功率提升至 90% 以上。"
